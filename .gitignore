@@ -1,0 +1,8 @@
+.spec-workflow/
+__pycache__/
+# *.pyc
+# *.pyo
+# *.pyd
+# *.so
+# *.egg
+# *.egg-info
