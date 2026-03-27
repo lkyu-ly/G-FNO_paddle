@@ -8,11 +8,23 @@ import random
 # os.environ["CUDA_VISIBLE_DEVICES"]="7" # TODO: for debugging
 from models.FNO import FNO2d, FNO3d
 from models.GFNO import GFNO2d, GFNO3d
-from models.GFNO_steerable import GFNO2d_steer
-from models.Unet import Unet_Rot, Unet_Rot_M, Unet_Rot_3D
 from models.Ghybrid import Ghybrid2d
 from models.radialNO import radialNO2d, radialNO3d
 from models.GCNN import GCNN2d, GCNN3d
+
+try:
+    from models.GFNO_steerable import GFNO2d_steer
+    GFNO2D_STEER_IMPORT_ERROR = None
+except Exception as exc:
+    GFNO2d_steer = None
+    GFNO2D_STEER_IMPORT_ERROR = exc
+
+try:
+    from models.Unet import Unet_Rot, Unet_Rot_M, Unet_Rot_3D
+    UNET_IMPORT_ERROR = None
+except Exception as exc:
+    Unet_Rot = Unet_Rot_M = Unet_Rot_3D = None
+    UNET_IMPORT_ERROR = exc
 
 from utils import pde_data, LpLoss, eq_check_rt, eq_check_rf
 
@@ -89,6 +101,8 @@ parser.add_argument("--lmbda", type=float, default=0.0001, help="weight decay fo
 parser.add_argument("--strategy", type=str, default="markov", help="markov, recurrent or oneshot")
 parser.add_argument("--time_pad", action="store_true", help="pad the time dimension for strategy=oneshot")
 parser.add_argument("--noise_std", type=float, default=0.00, help="amount of noise to inject for strategy=markov")
+parser.add_argument("--rdb_super_res", type=int, default=128, help="original spatial resolution for PDEBench radial dam break data")
+parser.add_argument("--rdb_downsample", type=int, default=4, help="spatial downsampling factor for PDEBench radial dam break data")
 
 args = parser.parse_args()
 
@@ -139,9 +153,12 @@ if args.grid:
 
 if rdb:
     assert T == 24, "T should be 24 for rdb"
+    assert args.rdb_downsample > 0, "rdb_downsample should be positive"
+    assert args.rdb_super_res > 0, "rdb_super_res should be positive"
+    assert args.rdb_super_res % args.rdb_downsample == 0, "rdb_super_res should be divisible by rdb_downsample"
     T_in = 1
-    S = Sx = Sy = 32
-    S_super = 128
+    S_super = args.rdb_super_res
+    S = Sx = Sy = S_super // args.rdb_downsample
     T_super = 96
 elif swe:
     assert not args.super, "Superresolution not supported for pdearena"
@@ -206,6 +223,8 @@ elif "GCNN3d" in args.model_type:
     reflection = "p4m" in args.model_type
     model = GCNN3d(num_channels=num_channels, initial_step=initial_step, width=width, reflection=reflection).cuda()
 elif "GFNO2d" in args.model_type and "steer" in args.model_type:
+    if GFNO2d_steer is None:
+        raise ImportError("GFNO2d_steer requires escnn and its cache path to be available") from GFNO2D_STEER_IMPORT_ERROR
     reflection = "p4m" in args.model_type
     model = GFNO2d_steer(num_channels=num_channels, initial_step=initial_step, input_size=S, modes=modes, width=width,
                          reflection=reflection).cuda()
@@ -230,10 +249,16 @@ elif "radialNO3d" in args.model_type:
     model = radialNO3d(num_channels=num_channels, initial_step=initial_step, modes=modes, time_modes=time_modes,
                        width=width, reflection=reflection, grid_type=grid_type, time_pad=args.time_pad).cuda()
 elif args.model_type == "Unet_Rot2d":
+    if Unet_Rot is None:
+        raise ImportError("Unet_Rot requires escnn and its cache path to be available") from UNET_IMPORT_ERROR
     model = Unet_Rot(input_frames=initial_step * num_channels, output_frames=num_channels, kernel_size=3, N=4).cuda()
 elif args.model_type == "Unet_Rot_M2d":
+    if Unet_Rot_M is None:
+        raise ImportError("Unet_Rot_M requires escnn and its cache path to be available") from UNET_IMPORT_ERROR
     model = Unet_Rot_M(input_frames=initial_step * num_channels, output_frames=num_channels, kernel_size=3, N=4, grid_type=grid_type, width=width).cuda()
 elif args.model_type == "Unet_Rot_3D":
+    if Unet_Rot_3D is None:
+        raise ImportError("Unet_Rot_3D requires escnn and its cache path to be available") from UNET_IMPORT_ERROR
     model = Unet_Rot_3D(input_frames=initial_step * num_channels, output_frames=num_channels, kernel_size=3, N=4, grid_type=grid_type, width=width).cuda()
 else:
     raise NotImplementedError("Model not recognized")
@@ -288,7 +313,7 @@ elif rdb: # shallow water equations
         data_list = sorted(f.keys())
         data = np.concatenate([np.array(f[key]['data'])[None] for key in data_list]).transpose(0, 2, 3, 1, 4)[..., :-1, :]
         full_data = data[-ntest:]
-        sampler = torch.nn.AvgPool2d(kernel_size=4)
+        sampler = torch.nn.AvgPool2d(kernel_size=args.rdb_downsample)
         data = sampler(torch.tensor(data[..., ::4, 0]).permute(0, 3, 1, 2)).permute(0, 2, 3, 1).unsqueeze(-1).numpy()
 elif swe: # swe: # pdearena shallow water equations
 

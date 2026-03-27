@@ -1,0 +1,1156 @@
+===========================================
+PyTorch to Paddle Convert Start ------>:
+===========================================
+Start convert file: /home/lkyu/baidu/G-FNO/G-FNO/experiments.py --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/experiments.py
+[experiments.py:5] remove 'import os' 
+[experiments.py:35] remove 'from torch.utils.tensorboard import SummaryWriter' 
+[experiments.py:36] remove 'import torch' 
+[experiments.py] add 'import paddle' in line 1
+[experiments.py] add 'import os' in line 2
+[experiments.py:40] [Success] Convert torch.set_num_threads to Paddle
+[experiments.py:55] [Success] Convert torch.cat to Paddle
+[experiments.py:59] [Success] Convert torch.cat to Paddle
+[experiments.py:122] [Success] Convert torch.manual_seed to Paddle
+[experiments.py:124] [Success] Convert torch.cuda.manual_seed to Paddle
+[experiments.py:148] [Success] Convert Class Method: torch.Tensor.split to Paddle, just remain the same
+[experiments.py:207] [Not Support] convert torch.utils.tensorboard.SummaryWriter to Paddle is not supported currently
+[experiments.py:277] [Success] Convert Class Method: torch.nn.Module.train to Paddle
+[experiments.py:278] [Success] Convert torch.randn to Paddle
+[experiments.py:278] [Success] Convert Class Method: torch.Tensor.cuda to Paddle
+[experiments.py:282] [Success] Convert torch.cat to Paddle
+[experiments.py:288] [Success] Convert Class Method: torch.nn.Module.eval to Paddle
+[experiments.py:289] [Success] Convert torch.no_grad to Paddle
+[experiments.py:290] [Success] Convert torch.randn to Paddle
+[experiments.py:290] [Success] Convert Class Method: torch.Tensor.cuda to Paddle
+[experiments.py:304] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:316] [Success] Convert torch.nn.AvgPool2d to Paddle
+[experiments.py:317] [Success] Convert torch.tensor to Paddle
+[experiments.py:317] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[experiments.py:317] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[experiments.py:317] [Success] Convert Class Method: torch.Tensor.unsqueeze to Paddle
+[experiments.py:317] [Success] Convert Class Method: torch.Tensor.numpy to Paddle
+[experiments.py:328] [Success] Convert torch.load to Paddle
+[experiments.py:335] [Success] Convert torch.tensor to Paddle
+[experiments.py:337] [Success] Convert torch.tensor to Paddle
+[experiments.py:339] [Success] Convert Class Method: torch.Tensor.unsqueeze to Paddle
+[experiments.py:342] [Success] Convert torch.cat to Paddle
+[experiments.py:342] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[experiments.py:342] [Success] Convert Class Method: torch.Tensor.unsqueeze to Paddle
+[experiments.py:345] [Success] Convert torch.cat to Paddle
+[experiments.py:347] [Success] Convert torch.cat to Paddle
+[experiments.py:351] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:358] [Success] Convert torch.from_numpy to Paddle
+[experiments.py:366] [Success] Convert Class Method: torch.Tensor.rot90 to Paddle
+[experiments.py:367] [Success] Convert Class Method: torch.Tensor.flip to Paddle
+[experiments.py:375] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:376] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:377] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:379] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:380] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:391] [Success] Convert torch.utils.data.DataLoader to Paddle
+[experiments.py:392] [Success] Convert torch.utils.data.DataLoader to Paddle
+[experiments.py:393] [Success] Convert torch.utils.data.DataLoader to Paddle
+[experiments.py:394] [Success] Convert torch.utils.data.DataLoader to Paddle
+[experiments.py:395] [Success] Convert torch.utils.data.DataLoader to Paddle
+[experiments.py:401] [Success] Convert Class Method: torch.Tensor.numel to Paddle
+[experiments.py:401] [Success] Convert Class Method: torch.Tensor.is_complex to Paddle
+[experiments.py:401] [Success] Convert Class Method: torch.nn.Module.parameters to Paddle
+[experiments.py:402] [Success] Convert Class Method: torch.Tensor.numel to Paddle
+[experiments.py:402] [Success] Convert Class Method: torch.nn.Module.parameters to Paddle
+[experiments.py:408] [Success] Convert Class Method: torch.nn.Module.parameters to Paddle
+[experiments.py:408] [Success] Convert torch.optim.Adam to Paddle
+[experiments.py:412] [Success] Convert torch.optim.lr_scheduler.StepLR to Paddle
+[experiments.py:415] [Success] Convert torch.optim.lr_scheduler.CosineAnnealingLR to Paddle
+[experiments.py:422] [Success] Convert Class Method: torch.Tensor.cuda to Paddle
+[experiments.py:423] [Success] Convert Class Method: torch.Tensor.cuda to Paddle
+[experiments.py:426] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:426] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:428] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:428] [Success] Convert torch.Size to Paddle
+[experiments.py:428] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:429] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:429] [Success] Convert torch.Size to Paddle
+[experiments.py:429] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:430] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:430] [Success] Convert torch.Size to Paddle
+[experiments.py:430] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:431] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:431] [Success] Convert torch.Size to Paddle
+[experiments.py:431] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:433] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:433] [Success] Convert torch.Size to Paddle
+[experiments.py:433] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:434] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:434] [Success] Convert torch.Size to Paddle
+[experiments.py:434] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:435] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:435] [Success] Convert torch.Size to Paddle
+[experiments.py:435] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:436] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:436] [Success] Convert torch.Size to Paddle
+[experiments.py:436] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:438] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:438] [Success] Convert torch.Size to Paddle
+[experiments.py:438] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:439] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:439] [Success] Convert torch.Size to Paddle
+[experiments.py:439] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:440] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:440] [Success] Convert torch.Size to Paddle
+[experiments.py:440] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:442] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:442] [Success] Convert torch.Size to Paddle
+[experiments.py:442] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:444] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:444] [Success] Convert torch.Size to Paddle
+[experiments.py:444] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:446] [Success] Convert Class Method: torch.nn.Module.eval to Paddle
+[experiments.py:456] [Success] Convert Class Method: torch.nn.Module.train to Paddle
+[experiments.py:463] [Success] Convert Class Method: torch.Tensor.cuda to Paddle
+[experiments.py:464] [Success] Convert Class Method: torch.Tensor.cuda to Paddle
+[experiments.py:474] [Success] Convert Class Method: torch.Tensor.rot90 to Paddle
+[experiments.py:475] [Success] Convert Class Method: torch.Tensor.rot90 to Paddle
+[experiments.py:478] [Success] Convert Class Method: torch.Tensor.rot90 to Paddle
+[experiments.py:479] [Success] Convert Class Method: torch.Tensor.rot90 to Paddle
+[experiments.py:483] [Success] Convert Class Method: torch.Tensor.flip to Paddle
+[experiments.py:484] [Success] Convert Class Method: torch.Tensor.flip to Paddle
+[experiments.py:487] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:490] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:490] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:491] [Success] Convert torch.cat to Paddle
+[experiments.py:492] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:496] [Success] Convert Class Method: torch.Tensor.squeeze to Paddle
+[experiments.py:497] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:497] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:499] [Success] Convert Class Method: torch.Tensor.item to Paddle
+[experiments.py:501] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:501] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:501] [Success] Convert Class Method: torch.Tensor.item to Paddle
+[experiments.py:502] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:502] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:502] [Success] Convert Class Method: torch.Tensor.item to Paddle
+[experiments.py:503] [Success] Convert Class Method: torch.nn.Module.zero_grad to Paddle
+[experiments.py:504] [Success] Convert Class Method: torch.Tensor.backward to Paddle
+[experiments.py:505] [Success] Convert Class Method: torch.optim.Optimizer.step to Paddle
+[experiments.py:507] [Success] Convert Class Method: torch.optim.Optimizer.step to Paddle
+[experiments.py:511] [Success] Convert Class Method: torch.optim.Optimizer.step to Paddle
+[experiments.py:518] [Success] Convert torch.no_grad to Paddle
+[experiments.py:519] [Success] Convert Class Method: torch.nn.Module.eval to Paddle
+[experiments.py:523] [Success] Convert Class Method: torch.Tensor.cuda to Paddle
+[experiments.py:524] [Success] Convert Class Method: torch.Tensor.cuda to Paddle
+[experiments.py:530] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[experiments.py:532] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:532] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:532] [Success] Convert Class Method: torch.Tensor.item to Paddle
+[experiments.py:534] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:534] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:534] [Success] Convert Class Method: torch.Tensor.item to Paddle
+[experiments.py:535] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:535] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:535] [Success] Convert Class Method: torch.Tensor.item to Paddle
+[experiments.py:552] [Success] Convert Class Method: torch.nn.Module.state_dict to Paddle
+[experiments.py:552] [Success] Convert torch.save to Paddle
+[experiments.py:559] [Success] Convert torch.tensor to Paddle
+[experiments.py:559] [Success] Convert Class Method: torch.Tensor.mean to Paddle
+[experiments.py:559] [Success] Convert Class Method: torch.Tensor.item to Paddle
+[experiments.py:561] [Success] Convert torch.tensor to Paddle
+[experiments.py:561] [Success] Convert Class Method: torch.Tensor.mean to Paddle
+[experiments.py:561] [Success] Convert Class Method: torch.Tensor.item to Paddle
+[experiments.py:562] [Success] Convert Class Method: torch.nn.Module.eval to Paddle
+[experiments.py:567] [Success] Convert torch.load to Paddle
+[experiments.py:567] [Success] Convert Class Method: torch.nn.Module.load_state_dict to Paddle
+[experiments.py:568] [Success] Convert Class Method: torch.nn.Module.eval to Paddle
+[experiments.py:575] [Success] Convert torch.no_grad to Paddle
+[experiments.py:577] [Success] Convert Class Method: torch.Tensor.cuda to Paddle
+[experiments.py:578] [Success] Convert Class Method: torch.Tensor.cuda to Paddle
+[experiments.py:579] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[experiments.py:580] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:580] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:580] [Success] Convert Class Method: torch.Tensor.item to Paddle
+[experiments.py:583] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:583] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:583] [Success] Convert Class Method: torch.Tensor.item to Paddle
+[experiments.py:584] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:584] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:584] [Success] Convert Class Method: torch.Tensor.item to Paddle
+[experiments.py:586] [Success] Convert Class Method: torch.Tensor.rot90 to Paddle
+[experiments.py:586] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:587] [Success] Convert Class Method: torch.Tensor.rot90 to Paddle
+[experiments.py:587] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:588] [Success] Convert Class Method: torch.Tensor.flip to Paddle
+[experiments.py:588] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:589] [Success] Convert Class Method: torch.Tensor.flip to Paddle
+[experiments.py:589] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:592] [Success] Convert Class Method: torch.Tensor.cuda to Paddle
+[experiments.py:593] [Success] Convert Class Method: torch.Tensor.cuda to Paddle
+[experiments.py:594] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[experiments.py:595] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:595] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:595] [Success] Convert Class Method: torch.Tensor.item to Paddle
+[experiments.py:598] [Success] Convert Class Method: torch.Tensor.cuda to Paddle
+[experiments.py:599] [Success] Convert Class Method: torch.Tensor.cuda to Paddle
+[experiments.py:600] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[experiments.py:601] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:601] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:601] [Success] Convert Class Method: torch.Tensor.item to Paddle
+[experiments.py:618] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:625] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:626] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:633] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[experiments.py:635] [Success] Convert torch.from_numpy to Paddle
+[experiments.py:635] [Success] Convert Class Method: torch.Tensor.unsqueeze to Paddle
+[experiments.py:636] [Success] Convert torch.from_numpy to Paddle
+[experiments.py:636] [Success] Convert Class Method: torch.Tensor.unsqueeze to Paddle
+[experiments.py:644] [Success] Convert torch.from_numpy to Paddle
+[experiments.py:647] [Success] Convert torch.from_numpy to Paddle
+[experiments.py:651] [Success] Convert Class Method: torch.Tensor.clone to Paddle
+[experiments.py:652] [Success] Convert Class Method: torch.Tensor.clone to Paddle
+[experiments.py:662] [Success] Convert torch.utils.data.DataLoader to Paddle
+[experiments.py:663] [Success] Convert torch.utils.data.DataLoader to Paddle
+[experiments.py:665] [Success] Convert torch.utils.data.DataLoader to Paddle
+[experiments.py:666] [Success] Convert torch.utils.data.DataLoader to Paddle
+[experiments.py:684] [Success] Convert torch.no_grad to Paddle
+[experiments.py:686] [Success] Convert Class Method: torch.Tensor.cuda to Paddle
+[experiments.py:687] [Success] Convert Class Method: torch.Tensor.cuda to Paddle
+[experiments.py:688] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[experiments.py:689] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:689] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:689] [Success] Convert Class Method: torch.Tensor.item to Paddle
+[experiments.py:693] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[experiments.py:693] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[experiments.py:693] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[experiments.py:693] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[experiments.py:693] [Success] Convert Class Method: torch.Tensor.cuda to Paddle
+[experiments.py:695] [Success] Convert Class Method: torch.Tensor.cuda to Paddle
+[experiments.py:696] [Success] Convert Class Method: torch.Tensor.cuda to Paddle
+[experiments.py:697] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[experiments.py:698] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[experiments.py:698] [Success] Convert torch.nn.functional.interpolate to Paddle
+[experiments.py:698] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[experiments.py:699] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:699] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:699] [Success] Convert Class Method: torch.Tensor.item to Paddle
+[experiments.py:702] [Success] Convert Class Method: torch.Tensor.cuda to Paddle
+[experiments.py:703] [Success] Convert Class Method: torch.Tensor.cuda to Paddle
+[experiments.py:704] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[experiments.py:705] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:705] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:705] [Success] Convert Class Method: torch.Tensor.item to Paddle
+[experiments.py:713] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[experiments.py:713] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[experiments.py:713] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[experiments.py:713] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[experiments.py:713] [Success] Convert Class Method: torch.Tensor.cuda to Paddle
+[experiments.py:715] [Success] Convert Class Method: torch.Tensor.cuda to Paddle
+[experiments.py:719] [Success] Convert Class Method: torch.Tensor.cuda to Paddle
+[experiments.py:720] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[experiments.py:721] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[experiments.py:721] [Success] Convert torch.nn.functional.interpolate to Paddle
+[experiments.py:721] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[experiments.py:722] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:722] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[experiments.py:722] [Success] Convert Class Method: torch.Tensor.item to Paddle
+Finish convert /home/lkyu/baidu/G-FNO/G-FNO/experiments.py --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/experiments.py
+
+Start convert file: /home/lkyu/baidu/G-FNO/G-FNO/utils.py --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/utils.py
+[utils.py:1] remove 'import torch' 
+[utils.py] add 'import paddle' in line 1
+[utils.py:1] [Success] Convert torch.utils.data.Dataset to Paddle
+[utils.py:32] [Success] Convert Class Method: torch.Tensor.unsqueeze to Paddle
+[utils.py:32] [Success] Convert Class Method: torch.Tensor.repeat to Paddle
+[utils.py:44] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[utils.py:44] [Success] Convert Class Attribute: torch.Tensor.device to Paddle, just remain the same
+[utils.py:44] [Success] Convert torch.randn to Paddle
+[utils.py:65] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[utils.py:68] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[utils.py:70] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[utils.py:70] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[utils.py:70] [Success] Convert torch.norm to Paddle
+[utils.py:74] [Success] Convert torch.mean to Paddle
+[utils.py:76] [Success] Convert torch.sum to Paddle
+[utils.py:81] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[utils.py:82] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[utils.py:82] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[utils.py:82] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[utils.py:83] [Success] Convert torch.norm to Paddle
+[utils.py:84] [Success] Convert torch.norm to Paddle
+[utils.py:87] [Success] Convert Class Method: torch.Tensor.mean to Paddle
+[utils.py:89] [Success] Convert torch.mean to Paddle
+[utils.py:91] [Success] Convert torch.sum to Paddle
+[utils.py:103] [Success] Convert Class Method: torch.nn.Module.eval to Paddle
+[utils.py:105] [Success] Convert torch.no_grad to Paddle
+[utils.py:111] [Success] Convert Class Method: torch.Tensor.rot90 to Paddle
+[utils.py:111] [Success] Convert Class Method: torch.Tensor.rot90 to Paddle
+[utils.py:111] [Success] Convert Class Method: torch.Tensor.rot90 to Paddle
+[utils.py:111] [Success] Convert Class Method: torch.Tensor.abs to Paddle
+[utils.py:111] [Success] Convert Class Method: torch.Tensor.nanmean to Paddle
+[utils.py:111] [Success] Convert Class Method: torch.Tensor.item to Paddle
+[utils.py:112] [Success] Convert torch.tensor to Paddle
+[utils.py:112] [Success] Convert Class Method: torch.Tensor.mean to Paddle
+[utils.py:112] [Success] Convert Class Method: torch.Tensor.item to Paddle
+[utils.py:116] [Success] Convert Class Method: torch.nn.Module.eval to Paddle
+[utils.py:118] [Success] Convert torch.no_grad to Paddle
+[utils.py:122] [Success] Convert Class Method: torch.Tensor.flip to Paddle
+[utils.py:122] [Success] Convert Class Method: torch.Tensor.flip to Paddle
+[utils.py:122] [Success] Convert Class Method: torch.Tensor.flip to Paddle
+[utils.py:122] [Success] Convert Class Method: torch.Tensor.abs to Paddle
+[utils.py:122] [Success] Convert Class Method: torch.Tensor.nanmean to Paddle
+[utils.py:122] [Success] Convert Class Method: torch.Tensor.item to Paddle
+[utils.py:123] [Success] Convert torch.tensor to Paddle
+[utils.py:123] [Success] Convert Class Method: torch.Tensor.mean to Paddle
+[utils.py:123] [Success] Convert Class Method: torch.Tensor.item to Paddle
+[utils.py:1] [Success] Convert torch.nn.Module to Paddle
+[utils.py:141] [Success] Convert torch.nn.Identity to Paddle
+[utils.py:146] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[utils.py:148] [Success] Convert torch.linspace to Paddle
+[utils.py:148] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[utils.py:148] [Success] Convert Class Method: torch.Tensor.repeat to Paddle
+[utils.py:149] [Success] Convert torch.linspace to Paddle
+[utils.py:149] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[utils.py:149] [Success] Convert Class Method: torch.Tensor.repeat to Paddle
+[utils.py:151] [Success] Convert torch.cat to Paddle
+[utils.py:158] [Success] Convert Class Attribute: torch.Tensor.device to Paddle, just remain the same
+[utils.py:158] [Success] Convert Class Method: torch.Tensor.to to Paddle
+[utils.py:159] [Success] Convert torch.cat to Paddle
+[utils.py:162] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[utils.py:164] [Success] Convert torch.linspace to Paddle
+[utils.py:164] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[utils.py:164] [Success] Convert Class Method: torch.Tensor.repeat to Paddle
+[utils.py:165] [Success] Convert torch.linspace to Paddle
+[utils.py:165] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[utils.py:165] [Success] Convert Class Method: torch.Tensor.repeat to Paddle
+[utils.py:166] [Success] Convert torch.linspace to Paddle
+[utils.py:166] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[utils.py:166] [Success] Convert Class Method: torch.Tensor.repeat to Paddle
+[utils.py:168] [Success] Convert torch.cat to Paddle
+[utils.py:174] [Success] Convert torch.cat to Paddle
+[utils.py:175] [Success] Convert Class Attribute: torch.Tensor.device to Paddle, just remain the same
+[utils.py:175] [Success] Convert Class Method: torch.Tensor.to to Paddle
+[utils.py:176] [Success] Convert torch.cat to Paddle
+Finish convert /home/lkyu/baidu/G-FNO/G-FNO/utils.py --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/utils.py
+
+No need to convert, just Copy /home/lkyu/baidu/G-FNO/G-FNO/README.md --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/README.md
+
+Start convert file: /home/lkyu/baidu/G-FNO/G-FNO/models/GFNO.py --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/models/GFNO.py
+[GFNO.py:1] remove 'import torch.nn.functional as F' 
+[GFNO.py:2] remove 'import torch' 
+[GFNO.py:3] remove 'import torch.nn as nn' 
+[GFNO.py] add 'import paddle' in line 1
+[GFNO.py:1] [Success] Convert torch.nn.Module to Paddle
+[GFNO.py:1] [Success] Convert torch.complex64 to Paddle
+[GFNO.py:1] [Success] Convert torch.float32 to Paddle
+[GFNO.py:25] [Success] Convert torch.empty to Paddle
+[GFNO.py:25] [Success] Convert torch.nn.Parameter to Paddle
+[GFNO.py:29] [Success] Convert torch.empty to Paddle
+[GFNO.py:29] [Success] Convert torch.nn.Parameter to Paddle
+[GFNO.py:30] [Success] Convert torch.empty to Paddle
+[GFNO.py:30] [Success] Convert torch.nn.Parameter to Paddle
+[GFNO.py:1] [Success] Convert torch.float32 to Paddle
+[GFNO.py:31] [Success] Convert torch.empty to Paddle
+[GFNO.py:31] [Success] Convert torch.nn.Parameter to Paddle
+[GFNO.py:28] [Success] Convert torch.nn.ParameterDict to Paddle
+[GFNO.py:34] [Success] Convert torch.empty to Paddle
+[GFNO.py:34] [Success] Convert torch.nn.Parameter to Paddle
+[GFNO.py:37] [Success] Convert torch.empty to Paddle
+[GFNO.py:37] [Success] Convert torch.nn.Parameter to Paddle
+[GFNO.py:44] [Success] Convert Class Method: torch.Tensor.values to Paddle
+[GFNO.py:45] [Success] Convert torch.nn.init.kaiming_uniform_ to Paddle
+[GFNO.py:47] [Success] Convert torch.nn.init.kaiming_uniform_ to Paddle
+[GFNO.py:49] [Success] Convert torch.nn.init.kaiming_uniform_ to Paddle
+[GFNO.py:61] [Success] Convert Class Method: torch.Tensor.cfloat to Paddle
+[GFNO.py:61] [Success] Convert Class Method: torch.Tensor.flip to Paddle
+[GFNO.py:61] [Success] Convert Class Method: torch.Tensor.conj to Paddle
+[GFNO.py:61] [Success] Convert torch.cat to Paddle
+[GFNO.py:62] [Success] Convert torch.cat to Paddle
+[GFNO.py:63] [Success] Convert Class Method: torch.Tensor.conj to Paddle
+[GFNO.py:63] [Success] Convert Class Method: torch.Tensor.rot90 to Paddle
+[GFNO.py:63] [Success] Convert torch.cat to Paddle
+[GFNO.py:70] [Success] Convert Class Method: torch.Tensor.repeat to Paddle
+[GFNO.py:74] [Success] Convert Class Method: torch.Tensor.rot90 to Paddle
+[GFNO.py:78] [Success] Convert Class Method: torch.Tensor.flip to Paddle
+[GFNO.py:82] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[GFNO.py:84] [Success] Convert Class Method: torch.Tensor.repeat_interleave to Paddle
+[GFNO.py:86] [Success] Convert Class Method: torch.Tensor.transpose to Paddle
+[GFNO.py:86] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[GFNO.py:92] [Success] Convert Class Method: torch.Tensor.repeat to Paddle
+[GFNO.py:96] [Success] Convert Class Method: torch.Tensor.rot90 to Paddle
+[GFNO.py:99] [Success] Convert Class Method: torch.Tensor.unsqueeze to Paddle
+[GFNO.py:102] [Success] Convert Class Method: torch.Tensor.unsqueeze to Paddle
+[GFNO.py:99] [Success] Convert torch.cat to Paddle
+[GFNO.py:104] [Success] Convert Class Method: torch.Tensor.unsqueeze to Paddle
+[GFNO.py:104] [Success] Convert torch.cat to Paddle
+[GFNO.py:108] [Success] Convert torch.cat to Paddle
+[GFNO.py:108] [Success] Convert Class Method: torch.Tensor.flip to Paddle
+[GFNO.py:113] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[GFNO.py:116] [Success] Convert Class Method: torch.Tensor.repeat_interleave to Paddle
+[GFNO.py:126] [Success] Convert torch.nn.functional.conv2d to Paddle
+[GFNO.py:1] [Success] Convert torch.nn.Module to Paddle
+[GFNO.py:152] [Success] Convert Class Method: torch.Tensor.transpose to Paddle
+[GFNO.py:157] [Success] Convert torch.einsum to Paddle
+[GFNO.py:160] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO.py:163] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO.py:163] [Success] Convert torch.fft.fftfreq to Paddle
+[GFNO.py:163] [Success] Convert torch.fft.fftshift to Paddle
+[GFNO.py:163] [Success] Convert Class Method: torch.Tensor.nonzero to Paddle
+[GFNO.py:163] [Success] Convert Class Method: torch.Tensor.item to Paddle
+[GFNO.py:167] [Success] Convert torch.fft.rfft2 to Paddle
+[GFNO.py:167] [Success] Convert torch.fft.fftshift to Paddle
+[GFNO.py:171] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO.py:171] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[GFNO.py:171] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[GFNO.py:1] [Success] Convert torch.complex64 to Paddle
+[GFNO.py:172] [Success] Convert Class Attribute: torch.Tensor.device to Paddle, just remain the same
+[GFNO.py:171] [Success] Convert torch.zeros to Paddle
+[GFNO.py:177] [Success] Convert torch.fft.ifftshift to Paddle
+[GFNO.py:177] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[GFNO.py:177] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[GFNO.py:177] [Success] Convert torch.fft.irfft2 to Paddle
+[GFNO.py:1] [Success] Convert torch.nn.Module to Paddle
+[GFNO.py:190] [Success] Convert torch.nn.functional.gelu to Paddle
+[GFNO.py:1] [Success] Convert torch.nn.Module to Paddle
+[GFNO.py:198] [Success] Convert torch.nn.InstanceNorm3d to Paddle
+[GFNO.py:201] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO.py:201] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO.py:201] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO.py:201] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[GFNO.py:203] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO.py:203] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO.py:203] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO.py:203] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[GFNO.py:1] [Success] Convert torch.nn.Module to Paddle
+[GFNO.py:246] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO.py:246] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO.py:246] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO.py:246] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[GFNO.py:248] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[GFNO.py:255] [Success] Convert torch.nn.functional.gelu to Paddle
+[GFNO.py:261] [Success] Convert torch.nn.functional.gelu to Paddle
+[GFNO.py:267] [Success] Convert torch.nn.functional.gelu to Paddle
+[GFNO.py:276] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[GFNO.py:277] [Success] Convert Class Method: torch.Tensor.unsqueeze to Paddle
+[GFNO.py:1] [Success] Convert torch.nn.Module to Paddle
+[GFNO.py:1] [Success] Convert torch.complex64 to Paddle
+[GFNO.py:1] [Success] Convert torch.float32 to Paddle
+[GFNO.py:299] [Success] Convert torch.empty to Paddle
+[GFNO.py:299] [Success] Convert torch.nn.Parameter to Paddle
+[GFNO.py:1] [Success] Convert torch.complex64 to Paddle
+[GFNO.py:304] [Success] Convert torch.empty to Paddle
+[GFNO.py:304] [Success] Convert torch.nn.Parameter to Paddle
+[GFNO.py:1] [Success] Convert torch.complex64 to Paddle
+[GFNO.py:306] [Success] Convert torch.empty to Paddle
+[GFNO.py:306] [Success] Convert torch.nn.Parameter to Paddle
+[GFNO.py:309] [Success] Convert torch.empty to Paddle
+[GFNO.py:309] [Success] Convert torch.nn.Parameter to Paddle
+[GFNO.py:1] [Success] Convert torch.complex64 to Paddle
+[GFNO.py:310] [Success] Convert torch.empty to Paddle
+[GFNO.py:310] [Success] Convert torch.nn.Parameter to Paddle
+[GFNO.py:303] [Success] Convert torch.nn.ParameterDict to Paddle
+[GFNO.py:315] [Success] Convert torch.empty to Paddle
+[GFNO.py:315] [Success] Convert torch.nn.Parameter to Paddle
+[GFNO.py:319] [Success] Convert torch.empty to Paddle
+[GFNO.py:319] [Success] Convert torch.nn.Parameter to Paddle
+[GFNO.py:326] [Success] Convert Class Method: torch.Tensor.values to Paddle
+[GFNO.py:327] [Success] Convert torch.nn.init.kaiming_uniform_ to Paddle
+[GFNO.py:329] [Success] Convert torch.nn.init.kaiming_uniform_ to Paddle
+[GFNO.py:331] [Success] Convert torch.nn.init.kaiming_uniform_ to Paddle
+[GFNO.py:343] [Success] Convert Class Method: torch.Tensor.conj to Paddle
+[GFNO.py:343] [Success] Convert Class Method: torch.Tensor.flip to Paddle
+[GFNO.py:343] [Success] Convert torch.cat to Paddle
+[GFNO.py:345] [Success] Convert Class Method: torch.Tensor.conj to Paddle
+[GFNO.py:345] [Success] Convert Class Method: torch.Tensor.rot90 to Paddle
+[GFNO.py:345] [Success] Convert torch.cat to Paddle
+[GFNO.py:347] [Success] Convert Class Method: torch.Tensor.conj to Paddle
+[GFNO.py:347] [Success] Convert Class Method: torch.Tensor.rot90 to Paddle
+[GFNO.py:347] [Success] Convert Class Method: torch.Tensor.flip to Paddle
+[GFNO.py:347] [Success] Convert torch.cat to Paddle
+[GFNO.py:355] [Success] Convert Class Method: torch.Tensor.repeat to Paddle
+[GFNO.py:359] [Success] Convert Class Method: torch.Tensor.rot90 to Paddle
+[GFNO.py:363] [Success] Convert Class Method: torch.Tensor.flip to Paddle
+[GFNO.py:367] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[GFNO.py:370] [Success] Convert Class Method: torch.Tensor.repeat_interleave to Paddle
+[GFNO.py:372] [Success] Convert Class Method: torch.Tensor.transpose to Paddle
+[GFNO.py:372] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[GFNO.py:379] [Success] Convert Class Method: torch.Tensor.repeat to Paddle
+[GFNO.py:383] [Success] Convert Class Method: torch.Tensor.rot90 to Paddle
+[GFNO.py:386] [Success] Convert Class Method: torch.Tensor.unsqueeze to Paddle
+[GFNO.py:389] [Success] Convert Class Method: torch.Tensor.unsqueeze to Paddle
+[GFNO.py:386] [Success] Convert torch.cat to Paddle
+[GFNO.py:391] [Success] Convert Class Method: torch.Tensor.unsqueeze to Paddle
+[GFNO.py:391] [Success] Convert torch.cat to Paddle
+[GFNO.py:396] [Success] Convert torch.cat to Paddle
+[GFNO.py:396] [Success] Convert Class Method: torch.Tensor.flip to Paddle
+[GFNO.py:401] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[GFNO.py:404] [Success] Convert Class Method: torch.Tensor.repeat_interleave to Paddle
+[GFNO.py:414] [Success] Convert torch.nn.functional.conv3d to Paddle
+[GFNO.py:1] [Success] Convert torch.nn.Module to Paddle
+[GFNO.py:441] [Success] Convert Class Method: torch.Tensor.transpose to Paddle
+[GFNO.py:446] [Success] Convert torch.einsum to Paddle
+[GFNO.py:449] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO.py:452] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO.py:452] [Success] Convert torch.fft.fftfreq to Paddle
+[GFNO.py:452] [Success] Convert torch.fft.fftshift to Paddle
+[GFNO.py:452] [Success] Convert Class Method: torch.Tensor.nonzero to Paddle
+[GFNO.py:452] [Success] Convert Class Method: torch.Tensor.item to Paddle
+[GFNO.py:453] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO.py:453] [Success] Convert torch.fft.fftfreq to Paddle
+[GFNO.py:453] [Success] Convert torch.fft.fftshift to Paddle
+[GFNO.py:453] [Success] Convert Class Method: torch.Tensor.nonzero to Paddle
+[GFNO.py:453] [Success] Convert Class Method: torch.Tensor.item to Paddle
+[GFNO.py:457] [Success] Convert torch.fft.rfftn to Paddle
+[GFNO.py:457] [Success] Convert torch.fft.fftshift to Paddle
+[GFNO.py:463] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO.py:463] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[GFNO.py:463] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[GFNO.py:463] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[GFNO.py:1] [Success] Convert torch.complex64 to Paddle
+[GFNO.py:464] [Success] Convert Class Attribute: torch.Tensor.device to Paddle, just remain the same
+[GFNO.py:463] [Success] Convert torch.zeros to Paddle
+[GFNO.py:469] [Success] Convert torch.fft.ifftshift to Paddle
+[GFNO.py:469] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[GFNO.py:469] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[GFNO.py:469] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[GFNO.py:469] [Success] Convert torch.fft.irfftn to Paddle
+[GFNO.py:1] [Success] Convert torch.nn.Module to Paddle
+[GFNO.py:483] [Success] Convert torch.nn.functional.gelu to Paddle
+[GFNO.py:1] [Success] Convert torch.nn.Module to Paddle
+[GFNO.py:534] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO.py:534] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO.py:534] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO.py:534] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO.py:534] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[GFNO.py:536] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[GFNO.py:540] [Success] Convert torch.nn.functional.pad to Paddle
+[GFNO.py:546] [Success] Convert torch.nn.functional.gelu to Paddle
+[GFNO.py:552] [Success] Convert torch.nn.functional.gelu to Paddle
+[GFNO.py:558] [Success] Convert torch.nn.functional.gelu to Paddle
+[GFNO.py:569] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[GFNO.py:570] [Success] Convert Class Method: torch.Tensor.unsqueeze to Paddle
+Finish convert /home/lkyu/baidu/G-FNO/G-FNO/models/GFNO.py --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/models/GFNO.py
+
+Start convert file: /home/lkyu/baidu/G-FNO/G-FNO/models/Ghybrid.py --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/models/Ghybrid.py
+[Ghybrid.py:1] remove 'import torch.nn' 
+[Ghybrid.py:5] remove 'import torch.nn as nn' 
+[Ghybrid.py] add 'import paddle' in line 1
+[Ghybrid.py:1] [Success] Convert torch.nn.Module to Paddle
+[Ghybrid.py:39] [Success] Convert torch.nn.ModuleList to Paddle
+[Ghybrid.py:40] [Success] Convert torch.nn.ModuleList to Paddle
+[Ghybrid.py:41] [Success] Convert torch.nn.ModuleList to Paddle
+[Ghybrid.py:52] [Success] Convert torch.nn.Conv2d to Paddle
+[Ghybrid.py:55] [Success] Convert torch.nn.InstanceNorm2d to Paddle
+[Ghybrid.py:59] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[Ghybrid.py:59] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[Ghybrid.py:59] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[Ghybrid.py:59] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[Ghybrid.py:60] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[Ghybrid.py:60] [Success] Convert Class Attribute: torch.Tensor.device to Paddle, just remain the same
+[Ghybrid.py:60] [Success] Convert Class Method: torch.Tensor.to to Paddle
+[Ghybrid.py:61] [Success] Convert torch.cat to Paddle
+[Ghybrid.py:62] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[Ghybrid.py:78] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[Ghybrid.py:79] [Success] Convert Class Method: torch.Tensor.unsqueeze to Paddle
+[Ghybrid.py:83] [Success] Convert torch.linspace to Paddle
+[Ghybrid.py:83] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[Ghybrid.py:83] [Success] Convert Class Method: torch.Tensor.repeat to Paddle
+[Ghybrid.py:84] [Success] Convert torch.linspace to Paddle
+[Ghybrid.py:84] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[Ghybrid.py:84] [Success] Convert Class Method: torch.Tensor.repeat to Paddle
+Finish convert /home/lkyu/baidu/G-FNO/G-FNO/models/Ghybrid.py --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/models/Ghybrid.py
+
+Start convert file: /home/lkyu/baidu/G-FNO/G-FNO/models/GFNO_steerable.py --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/models/GFNO_steerable.py
+[GFNO_steerable.py:1] remove 'import torch.nn.functional as F' 
+[GFNO_steerable.py:2] remove 'import torch' 
+[GFNO_steerable.py:3] remove 'import torch.nn as nn' 
+[GFNO_steerable.py] add 'import paddle' in line 1
+[GFNO_steerable.py:1] [Success] Convert torch.nn.Module to Paddle
+[GFNO_steerable.py:27] [Success] Convert torch.empty to Paddle
+[GFNO_steerable.py:27] [Success] Convert torch.nn.Parameter to Paddle
+[GFNO_steerable.py:28] [Success] Convert torch.nn.init.kaiming_uniform_ to Paddle
+[GFNO_steerable.py:42] [Success] Convert Class Attribute: torch.Tensor.device to Paddle, just remain the same
+[GFNO_steerable.py:42] [Success] Convert Class Attribute: torch.Tensor.device to Paddle, just remain the same
+[GFNO_steerable.py:43] [Success] Convert Class Attribute: torch.Tensor.device to Paddle, just remain the same
+[GFNO_steerable.py:43] [Success] Convert Class Method: torch.Tensor.to to Paddle
+[GFNO_steerable.py:1] [Success] Convert torch.complex64 to Paddle
+[GFNO_steerable.py:45] [Success] Convert torch.empty to Paddle
+[GFNO_steerable.py:45] [Success] Convert Class Attribute: torch.Tensor.device to Paddle, just remain the same
+[GFNO_steerable.py:45] [Success] Convert Class Method: torch.Tensor.to to Paddle
+[GFNO_steerable.py:50] [Success] Convert Class Method: torch.Tensor.sum to Paddle
+[GFNO_steerable.py:52] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[GFNO_steerable.py:57] [Success] Convert torch.einsum to Paddle
+[GFNO_steerable.py:60] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO_steerable.py:63] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO_steerable.py:63] [Success] Convert torch.fft.fftfreq to Paddle
+[GFNO_steerable.py:63] [Success] Convert torch.fft.fftshift to Paddle
+[GFNO_steerable.py:63] [Success] Convert Class Method: torch.Tensor.nonzero to Paddle
+[GFNO_steerable.py:63] [Success] Convert Class Method: torch.Tensor.item to Paddle
+[GFNO_steerable.py:65] [Success] Convert torch.nn.Parameter to Paddle
+[GFNO_steerable.py:68] [Success] Convert torch.fft.rfft2 to Paddle
+[GFNO_steerable.py:68] [Success] Convert torch.fft.fftshift to Paddle
+[GFNO_steerable.py:72] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO_steerable.py:72] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[GFNO_steerable.py:72] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[GFNO_steerable.py:1] [Success] Convert torch.complex64 to Paddle
+[GFNO_steerable.py:73] [Success] Convert Class Attribute: torch.Tensor.device to Paddle, just remain the same
+[GFNO_steerable.py:72] [Success] Convert torch.zeros to Paddle
+[GFNO_steerable.py:78] [Success] Convert torch.fft.ifftshift to Paddle
+[GFNO_steerable.py:78] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[GFNO_steerable.py:78] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[GFNO_steerable.py:78] [Success] Convert torch.fft.irfft2 to Paddle
+[GFNO_steerable.py:1] [Success] Convert torch.nn.Module to Paddle
+[GFNO_steerable.py:96] [Success] Convert torch.nn.functional.gelu to Paddle
+[GFNO_steerable.py:1] [Success] Convert torch.nn.Module to Paddle
+[GFNO_steerable.py:1] [Success] Convert torch.nn.Module to Paddle
+[GFNO_steerable.py:120] [Success] Convert torch.nn.InstanceNorm3d to Paddle
+[GFNO_steerable.py:123] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO_steerable.py:123] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO_steerable.py:123] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO_steerable.py:123] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[GFNO_steerable.py:125] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO_steerable.py:125] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO_steerable.py:125] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO_steerable.py:125] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[GFNO_steerable.py:1] [Success] Convert torch.nn.Module to Paddle
+[GFNO_steerable.py:175] [Success] Convert torch.no_grad to Paddle
+[GFNO_steerable.py:180] [Success] Convert Class Method: torch.Tensor.cpu to Paddle
+[GFNO_steerable.py:180] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[GFNO_steerable.py:181] [Success] Convert torch.cuda.empty_cache to Paddle
+[GFNO_steerable.py:182] [Success] Convert torch.fft.ifftshift to Paddle
+[GFNO_steerable.py:182] [Success] Convert torch.fft.rfft2 to Paddle
+[GFNO_steerable.py:182] [Success] Convert torch.fft.fftshift to Paddle
+[GFNO_steerable.py:183] [Success] Convert torch.fft.fftfreq to Paddle
+[GFNO_steerable.py:183] [Success] Convert torch.fft.fftshift to Paddle
+[GFNO_steerable.py:183] [Success] Convert Class Method: torch.Tensor.nonzero to Paddle
+[GFNO_steerable.py:183] [Success] Convert Class Method: torch.Tensor.item to Paddle
+[GFNO_steerable.py:188] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO_steerable.py:188] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO_steerable.py:188] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO_steerable.py:188] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[GFNO_steerable.py:189] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GFNO_steerable.py:189] [Success] Convert Class Attribute: torch.Tensor.device to Paddle, just remain the same
+[GFNO_steerable.py:189] [Success] Convert Class Method: torch.Tensor.to to Paddle
+[GFNO_steerable.py:190] [Success] Convert torch.cat to Paddle
+[GFNO_steerable.py:191] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[GFNO_steerable.py:198] [Success] Convert torch.nn.functional.gelu to Paddle
+[GFNO_steerable.py:204] [Success] Convert torch.nn.functional.gelu to Paddle
+[GFNO_steerable.py:210] [Success] Convert torch.nn.functional.gelu to Paddle
+[GFNO_steerable.py:219] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[GFNO_steerable.py:220] [Success] Convert Class Method: torch.Tensor.unsqueeze to Paddle
+[GFNO_steerable.py:224] [Success] Convert torch.linspace to Paddle
+[GFNO_steerable.py:224] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[GFNO_steerable.py:224] [Success] Convert Class Method: torch.Tensor.repeat to Paddle
+[GFNO_steerable.py:225] [Success] Convert torch.linspace to Paddle
+[GFNO_steerable.py:225] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[GFNO_steerable.py:225] [Success] Convert Class Method: torch.Tensor.repeat to Paddle
+Finish convert /home/lkyu/baidu/G-FNO/G-FNO/models/GFNO_steerable.py --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/models/GFNO_steerable.py
+
+Start convert file: /home/lkyu/baidu/G-FNO/G-FNO/models/Unet.py --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/models/Unet.py
+[Unet.py:1] remove 'import torch.nn.functional as F' 
+[Unet.py:2] remove 'import torch' 
+[Unet.py] add 'import paddle' in line 1
+[Unet.py:1] [Success] Convert torch.nn.Module to Paddle
+[Unet.py:1] [Success] Convert torch.nn.Module to Paddle
+[Unet.py:54] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[Unet.py:54] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[Unet.py:54] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[Unet.py:54] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[Unet.py:54] [Success] Convert torch.zeros to Paddle
+[Unet.py:61] [Success] Convert Class Attribute: torch.Tensor.device to Paddle, just remain the same
+[Unet.py:61] [Success] Convert Class Method: torch.Tensor.to to Paddle
+[Unet.py:1] [Success] Convert torch.nn.Module to Paddle
+[Unet.py:96] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[Unet.py:96] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[Unet.py:96] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[Unet.py:96] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[Unet.py:97] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[Unet.py:105] [Success] Convert torch.cat to Paddle
+[Unet.py:107] [Success] Convert torch.cat to Paddle
+[Unet.py:110] [Success] Convert torch.cat to Paddle
+[Unet.py:114] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[Unet.py:115] [Success] Convert Class Method: torch.Tensor.unsqueeze to Paddle
+[Unet.py:1] [Success] Convert torch.nn.Module to Paddle
+[Unet.py:1] [Success] Convert torch.nn.Module to Paddle
+[Unet.py:1] [Success] Convert torch.nn.Module to Paddle
+[Unet.py:196] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[Unet.py:196] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[Unet.py:196] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[Unet.py:196] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[Unet.py:198] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[Unet.py:205] [Success] Convert torch.cat to Paddle
+[Unet.py:208] [Success] Convert torch.cat to Paddle
+[Unet.py:212] [Success] Convert torch.cat to Paddle
+[Unet.py:216] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[Unet.py:217] [Success] Convert Class Method: torch.Tensor.unsqueeze to Paddle
+[Unet.py:1] [Success] Convert torch.nn.Module to Paddle
+[Unet.py:1] [Success] Convert torch.nn.Module to Paddle
+[Unet.py:251] [Success] Convert torch.nn.functional.max_pool3d to Paddle
+[Unet.py:1] [Success] Convert torch.nn.Module to Paddle
+[Unet.py:269] [Success] Convert torch.nn.functional.interpolate to Paddle
+[Unet.py:1] [Success] Convert torch.nn.Module to Paddle
+[Unet.py:316] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[Unet.py:316] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[Unet.py:318] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[Unet.py:319] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[Unet.py:320] [Success] Convert torch.nn.functional.max_pool3d to Paddle
+[Unet.py:321] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[Unet.py:324] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[Unet.py:326] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[Unet.py:327] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[Unet.py:332] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[Unet.py:334] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[Unet.py:338] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[Unet.py:339] [Success] Convert torch.cat to Paddle
+[Unet.py:341] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[Unet.py:342] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[Unet.py:342] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[Unet.py:342] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[Unet.py:345] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[Unet.py:346] [Success] Convert torch.cat to Paddle
+[Unet.py:349] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[Unet.py:350] [Success] Convert torch.cat to Paddle
+[Unet.py:354] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[Unet.py:355] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+Finish convert /home/lkyu/baidu/G-FNO/G-FNO/models/Unet.py --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/models/Unet.py
+
+Start convert file: /home/lkyu/baidu/G-FNO/G-FNO/models/GCNN.py --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/models/GCNN.py
+[GCNN.py:1] remove 'import torch.nn.functional as F' 
+[GCNN.py:2] remove 'import torch' 
+[GCNN.py:3] remove 'import torch.nn as nn' 
+[GCNN.py] add 'import paddle' in line 1
+[GCNN.py:1] [Success] Convert torch.nn.Module to Paddle
+[GCNN.py:1] [Success] Convert torch.nn.functional.pad to Paddle
+[GCNN.py:52] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GCNN.py:52] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GCNN.py:52] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GCNN.py:52] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[GCNN.py:53] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GCNN.py:53] [Success] Convert Class Attribute: torch.Tensor.device to Paddle, just remain the same
+[GCNN.py:53] [Success] Convert Class Method: torch.Tensor.to to Paddle
+[GCNN.py:54] [Success] Convert torch.cat to Paddle
+[GCNN.py:55] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[GCNN.py:62] [Success] Convert torch.nn.functional.gelu to Paddle
+[GCNN.py:68] [Success] Convert torch.nn.functional.gelu to Paddle
+[GCNN.py:74] [Success] Convert torch.nn.functional.gelu to Paddle
+[GCNN.py:83] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[GCNN.py:84] [Success] Convert Class Method: torch.Tensor.unsqueeze to Paddle
+[GCNN.py:88] [Success] Convert torch.linspace to Paddle
+[GCNN.py:88] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[GCNN.py:88] [Success] Convert Class Method: torch.Tensor.repeat to Paddle
+[GCNN.py:89] [Success] Convert torch.linspace to Paddle
+[GCNN.py:89] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[GCNN.py:89] [Success] Convert Class Method: torch.Tensor.repeat to Paddle
+[GCNN.py:1] [Success] Convert torch.nn.Module to Paddle
+[GCNN.py:1] [Success] Convert torch.nn.functional.pad to Paddle
+[GCNN.py:1] [Success] Convert torch.nn.functional.pad to Paddle
+[GCNN.py:141] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GCNN.py:141] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GCNN.py:141] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GCNN.py:141] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GCNN.py:141] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[GCNN.py:142] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[GCNN.py:142] [Success] Convert Class Attribute: torch.Tensor.device to Paddle, just remain the same
+[GCNN.py:142] [Success] Convert Class Method: torch.Tensor.to to Paddle
+[GCNN.py:143] [Success] Convert torch.cat to Paddle
+[GCNN.py:144] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[GCNN.py:151] [Success] Convert torch.nn.functional.gelu to Paddle
+[GCNN.py:157] [Success] Convert torch.nn.functional.gelu to Paddle
+[GCNN.py:163] [Success] Convert torch.nn.functional.gelu to Paddle
+[GCNN.py:172] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[GCNN.py:173] [Success] Convert Class Method: torch.Tensor.unsqueeze to Paddle
+[GCNN.py:177] [Success] Convert torch.linspace to Paddle
+[GCNN.py:177] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[GCNN.py:177] [Success] Convert Class Method: torch.Tensor.repeat to Paddle
+[GCNN.py:178] [Success] Convert torch.linspace to Paddle
+[GCNN.py:178] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[GCNN.py:178] [Success] Convert Class Method: torch.Tensor.repeat to Paddle
+[GCNN.py:179] [Success] Convert torch.linspace to Paddle
+[GCNN.py:179] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[GCNN.py:179] [Success] Convert Class Method: torch.Tensor.repeat to Paddle
+[GCNN.py:183] [Success] Convert torch.cat to Paddle
+Finish convert /home/lkyu/baidu/G-FNO/G-FNO/models/GCNN.py --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/models/GCNN.py
+
+Start convert file: /home/lkyu/baidu/G-FNO/G-FNO/models/FNO.py --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/models/FNO.py
+[FNO.py:1] remove 'import torch.nn.functional as F' 
+[FNO.py:2] remove 'import torch' 
+[FNO.py:3] remove 'import torch.nn as nn' 
+[FNO.py] add 'import paddle' in line 1
+[FNO.py:19] [Success] Convert torch.mean to Paddle
+[FNO.py:20] [Success] Convert torch.std to Paddle
+[FNO.py:32] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[FNO.py:32] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[FNO.py:35] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[FNO.py:35] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[FNO.py:44] [Success] Convert Class Method: torch.Tensor.cuda to Paddle
+[FNO.py:45] [Success] Convert Class Method: torch.Tensor.cuda to Paddle
+[FNO.py:48] [Success] Convert Class Method: torch.Tensor.cpu to Paddle
+[FNO.py:49] [Success] Convert Class Method: torch.Tensor.cpu to Paddle
+[FNO.py:1] [Success] Convert torch.nn.Module to Paddle
+[FNO.py:1] [Success] Convert torch.complex64 to Paddle
+[FNO.py:69] [Success] Convert torch.rand to Paddle
+[FNO.py:68] [Success] Convert torch.nn.Parameter to Paddle
+[FNO.py:1] [Success] Convert torch.complex64 to Paddle
+[FNO.py:71] [Success] Convert torch.rand to Paddle
+[FNO.py:70] [Success] Convert torch.nn.Parameter to Paddle
+[FNO.py:76] [Success] Convert torch.einsum to Paddle
+[FNO.py:79] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[FNO.py:81] [Success] Convert torch.fft.rfft2 to Paddle
+[FNO.py:84] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[FNO.py:84] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[FNO.py:1] [Success] Convert torch.complex64 to Paddle
+[FNO.py:85] [Success] Convert Class Attribute: torch.Tensor.device to Paddle, just remain the same
+[FNO.py:84] [Success] Convert torch.zeros to Paddle
+[FNO.py:92] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[FNO.py:92] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[FNO.py:92] [Success] Convert torch.fft.irfft2 to Paddle
+[FNO.py:1] [Success] Convert torch.nn.Module to Paddle
+[FNO.py:98] [Success] Convert torch.nn.Conv2d to Paddle
+[FNO.py:99] [Success] Convert torch.nn.Conv2d to Paddle
+[FNO.py:103] [Success] Convert torch.nn.functional.gelu to Paddle
+[FNO.py:1] [Success] Convert torch.nn.Module to Paddle
+[FNO.py:130] [Success] Convert torch.nn.Linear to Paddle
+[FNO.py:139] [Success] Convert torch.nn.Conv2d to Paddle
+[FNO.py:140] [Success] Convert torch.nn.Conv2d to Paddle
+[FNO.py:141] [Success] Convert torch.nn.Conv2d to Paddle
+[FNO.py:142] [Success] Convert torch.nn.Conv2d to Paddle
+[FNO.py:143] [Success] Convert torch.nn.InstanceNorm2d to Paddle
+[FNO.py:147] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[FNO.py:147] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[FNO.py:147] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[FNO.py:147] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[FNO.py:152] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[FNO.py:159] [Success] Convert torch.nn.functional.gelu to Paddle
+[FNO.py:165] [Success] Convert torch.nn.functional.gelu to Paddle
+[FNO.py:171] [Success] Convert torch.nn.functional.gelu to Paddle
+[FNO.py:180] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[FNO.py:181] [Success] Convert Class Method: torch.Tensor.unsqueeze to Paddle
+[FNO.py:185] [Success] Convert torch.linspace to Paddle
+[FNO.py:186] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[FNO.py:186] [Success] Convert Class Method: torch.Tensor.repeat to Paddle
+[FNO.py:187] [Success] Convert torch.linspace to Paddle
+[FNO.py:188] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[FNO.py:188] [Success] Convert Class Method: torch.Tensor.repeat to Paddle
+[FNO.py:189] [Success] Convert torch.cat to Paddle
+[FNO.py:1] [Success] Convert torch.nn.Module to Paddle
+[FNO.py:1] [Success] Convert torch.complex64 to Paddle
+[FNO.py:210] [Success] Convert torch.rand to Paddle
+[FNO.py:210] [Success] Convert torch.nn.Parameter to Paddle
+[FNO.py:1] [Success] Convert torch.complex64 to Paddle
+[FNO.py:211] [Success] Convert torch.rand to Paddle
+[FNO.py:211] [Success] Convert torch.nn.Parameter to Paddle
+[FNO.py:1] [Success] Convert torch.complex64 to Paddle
+[FNO.py:212] [Success] Convert torch.rand to Paddle
+[FNO.py:212] [Success] Convert torch.nn.Parameter to Paddle
+[FNO.py:1] [Success] Convert torch.complex64 to Paddle
+[FNO.py:213] [Success] Convert torch.rand to Paddle
+[FNO.py:213] [Success] Convert torch.nn.Parameter to Paddle
+[FNO.py:218] [Success] Convert torch.einsum to Paddle
+[FNO.py:221] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[FNO.py:223] [Success] Convert torch.fft.rfftn to Paddle
+[FNO.py:226] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[FNO.py:226] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[FNO.py:226] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[FNO.py:1] [Success] Convert torch.complex64 to Paddle
+[FNO.py:226] [Success] Convert Class Attribute: torch.Tensor.device to Paddle, just remain the same
+[FNO.py:226] [Success] Convert torch.zeros to Paddle
+[FNO.py:237] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[FNO.py:237] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[FNO.py:237] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[FNO.py:237] [Success] Convert torch.fft.irfftn to Paddle
+[FNO.py:1] [Success] Convert torch.nn.Module to Paddle
+[FNO.py:243] [Success] Convert torch.nn.Conv3d to Paddle
+[FNO.py:244] [Success] Convert torch.nn.Conv3d to Paddle
+[FNO.py:248] [Success] Convert torch.nn.functional.gelu to Paddle
+[FNO.py:1] [Success] Convert torch.nn.Module to Paddle
+[FNO.py:277] [Success] Convert torch.nn.Linear to Paddle
+[FNO.py:286] [Success] Convert torch.nn.Conv3d to Paddle
+[FNO.py:287] [Success] Convert torch.nn.Conv3d to Paddle
+[FNO.py:288] [Success] Convert torch.nn.Conv3d to Paddle
+[FNO.py:289] [Success] Convert torch.nn.Conv3d to Paddle
+[FNO.py:293] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[FNO.py:293] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[FNO.py:293] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[FNO.py:293] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[FNO.py:293] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[FNO.py:294] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[FNO.py:294] [Success] Convert Class Attribute: torch.Tensor.device to Paddle, just remain the same
+[FNO.py:294] [Success] Convert Class Method: torch.Tensor.to to Paddle
+[FNO.py:295] [Success] Convert torch.cat to Paddle
+[FNO.py:297] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[FNO.py:300] [Success] Convert torch.nn.functional.pad to Paddle
+[FNO.py:306] [Success] Convert torch.nn.functional.gelu to Paddle
+[FNO.py:312] [Success] Convert torch.nn.functional.gelu to Paddle
+[FNO.py:318] [Success] Convert torch.nn.functional.gelu to Paddle
+[FNO.py:328] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[FNO.py:330] [Success] Convert Class Method: torch.Tensor.unsqueeze to Paddle
+[FNO.py:335] [Success] Convert torch.linspace to Paddle
+[FNO.py:336] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[FNO.py:336] [Success] Convert Class Method: torch.Tensor.repeat to Paddle
+[FNO.py:337] [Success] Convert torch.linspace to Paddle
+[FNO.py:338] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[FNO.py:338] [Success] Convert Class Method: torch.Tensor.repeat to Paddle
+[FNO.py:339] [Success] Convert torch.linspace to Paddle
+[FNO.py:340] [Success] Convert Class Method: torch.Tensor.reshape to Paddle
+[FNO.py:340] [Success] Convert Class Method: torch.Tensor.repeat to Paddle
+[FNO.py:341] [Success] Convert torch.cat to Paddle
+Finish convert /home/lkyu/baidu/G-FNO/G-FNO/models/FNO.py --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/models/FNO.py
+
+Start convert file: /home/lkyu/baidu/G-FNO/G-FNO/models/radialNO.py --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/models/radialNO.py
+[radialNO.py:1] remove 'import torch' 
+[radialNO.py:2] remove 'import torch.nn as nn' 
+[radialNO.py:3] remove 'import torch.nn.functional as F' 
+[radialNO.py] add 'import paddle' in line 1
+[radialNO.py:1] [Success] Convert torch.nn.Module to Paddle
+[radialNO.py:1] [Success] Convert torch.float32 to Paddle
+[radialNO.py:25] [Success] Convert torch.tril_indices to Paddle
+[radialNO.py:28] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[radialNO.py:28] [Success] Convert torch.rand to Paddle
+[radialNO.py:28] [Success] Convert torch.nn.Parameter to Paddle
+[radialNO.py:31] [Success] Convert torch.rand to Paddle
+[radialNO.py:31] [Success] Convert torch.nn.Parameter to Paddle
+[radialNO.py:34] [Success] Convert torch.rand to Paddle
+[radialNO.py:34] [Success] Convert torch.nn.Parameter to Paddle
+[radialNO.py:51] [Success] Convert torch.zeros to Paddle
+[radialNO.py:52] [Success] Convert Class Attribute: torch.Tensor.device to Paddle, just remain the same
+[radialNO.py:51] [Success] Convert Class Method: torch.Tensor.to to Paddle
+[radialNO.py:54] [Success] Convert Class Method: torch.Tensor.transpose to Paddle
+[radialNO.py:57] [Success] Convert Class Method: torch.Tensor.flip to Paddle
+[radialNO.py:57] [Success] Convert torch.cat to Paddle
+[radialNO.py:57] [Success] Convert Class Method: torch.Tensor.cfloat to Paddle
+[radialNO.py:62] [Success] Convert torch.cat to Paddle
+[radialNO.py:63] [Success] Convert Class Method: torch.Tensor.flip to Paddle
+[radialNO.py:63] [Success] Convert Class Method: torch.Tensor.rot90 to Paddle
+[radialNO.py:63] [Success] Convert torch.cat to Paddle
+[radialNO.py:64] [Success] Convert torch.cat to Paddle
+[radialNO.py:64] [Success] Convert Class Method: torch.Tensor.cfloat to Paddle
+[radialNO.py:69] [Success] Convert torch.einsum to Paddle
+[radialNO.py:73] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[radialNO.py:76] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[radialNO.py:76] [Success] Convert torch.fft.fftfreq to Paddle
+[radialNO.py:76] [Success] Convert torch.fft.fftshift to Paddle
+[radialNO.py:76] [Success] Convert Class Method: torch.Tensor.nonzero to Paddle
+[radialNO.py:76] [Success] Convert Class Method: torch.Tensor.item to Paddle
+[radialNO.py:80] [Success] Convert torch.fft.rfft2 to Paddle
+[radialNO.py:80] [Success] Convert torch.fft.fftshift to Paddle
+[radialNO.py:84] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[radialNO.py:84] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[radialNO.py:1] [Success] Convert torch.complex64 to Paddle
+[radialNO.py:85] [Success] Convert Class Attribute: torch.Tensor.device to Paddle, just remain the same
+[radialNO.py:84] [Success] Convert torch.zeros to Paddle
+[radialNO.py:90] [Success] Convert torch.fft.ifftshift to Paddle
+[radialNO.py:90] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[radialNO.py:90] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[radialNO.py:90] [Success] Convert torch.fft.irfft2 to Paddle
+[radialNO.py:1] [Success] Convert torch.nn.Module to Paddle
+[radialNO.py:110] [Success] Convert torch.nn.ReLU to Paddle
+[radialNO.py:111] [Success] Convert torch.nn.InstanceNorm2d to Paddle
+[radialNO.py:117] [Success] Convert torch.nn.Linear to Paddle
+[radialNO.py:126] [Success] Convert torch.nn.Conv2d to Paddle
+[radialNO.py:127] [Success] Convert torch.nn.Conv2d to Paddle
+[radialNO.py:128] [Success] Convert torch.nn.Conv2d to Paddle
+[radialNO.py:129] [Success] Convert torch.nn.Conv2d to Paddle
+[radialNO.py:133] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[radialNO.py:133] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[radialNO.py:133] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[radialNO.py:133] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[radialNO.py:136] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[radialNO.py:163] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[radialNO.py:164] [Success] Convert Class Method: torch.Tensor.unsqueeze to Paddle
+[radialNO.py:1] [Success] Convert torch.nn.Module to Paddle
+[radialNO.py:1] [Success] Convert torch.float32 to Paddle
+[radialNO.py:185] [Success] Convert torch.tril_indices to Paddle
+[radialNO.py:188] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[radialNO.py:188] [Success] Convert torch.rand to Paddle
+[radialNO.py:188] [Success] Convert torch.nn.Parameter to Paddle
+[radialNO.py:193] [Success] Convert torch.rand to Paddle
+[radialNO.py:193] [Success] Convert torch.nn.Parameter to Paddle
+[radialNO.py:197] [Success] Convert torch.rand to Paddle
+[radialNO.py:197] [Success] Convert torch.nn.Parameter to Paddle
+[radialNO.py:216] [Success] Convert torch.zeros to Paddle
+[radialNO.py:217] [Success] Convert Class Attribute: torch.Tensor.device to Paddle, just remain the same
+[radialNO.py:216] [Success] Convert Class Method: torch.Tensor.to to Paddle
+[radialNO.py:219] [Success] Convert Class Method: torch.Tensor.transpose to Paddle
+[radialNO.py:222] [Success] Convert Class Method: torch.Tensor.flip to Paddle
+[radialNO.py:222] [Success] Convert torch.cat to Paddle
+[radialNO.py:226] [Success] Convert torch.cat to Paddle
+[radialNO.py:227] [Success] Convert Class Method: torch.Tensor.flip to Paddle
+[radialNO.py:227] [Success] Convert Class Method: torch.Tensor.rot90 to Paddle
+[radialNO.py:227] [Success] Convert torch.cat to Paddle
+[radialNO.py:228] [Success] Convert torch.cat to Paddle
+[radialNO.py:231] [Success] Convert Class Method: torch.Tensor.flip to Paddle
+[radialNO.py:231] [Success] Convert torch.cat to Paddle
+[radialNO.py:231] [Success] Convert Class Method: torch.Tensor.cfloat to Paddle
+[radialNO.py:236] [Success] Convert torch.einsum to Paddle
+[radialNO.py:240] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[radialNO.py:243] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[radialNO.py:243] [Success] Convert torch.fft.fftfreq to Paddle
+[radialNO.py:243] [Success] Convert torch.fft.fftshift to Paddle
+[radialNO.py:243] [Success] Convert Class Method: torch.Tensor.nonzero to Paddle
+[radialNO.py:243] [Success] Convert Class Method: torch.Tensor.item to Paddle
+[radialNO.py:244] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[radialNO.py:244] [Success] Convert torch.fft.fftfreq to Paddle
+[radialNO.py:244] [Success] Convert torch.fft.fftshift to Paddle
+[radialNO.py:244] [Success] Convert Class Method: torch.Tensor.nonzero to Paddle
+[radialNO.py:244] [Success] Convert Class Method: torch.Tensor.item to Paddle
+[radialNO.py:248] [Success] Convert torch.fft.rfftn to Paddle
+[radialNO.py:248] [Success] Convert torch.fft.fftshift to Paddle
+[radialNO.py:253] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[radialNO.py:253] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[radialNO.py:253] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[radialNO.py:1] [Success] Convert torch.complex64 to Paddle
+[radialNO.py:254] [Success] Convert Class Attribute: torch.Tensor.device to Paddle, just remain the same
+[radialNO.py:253] [Success] Convert torch.zeros to Paddle
+[radialNO.py:260] [Success] Convert torch.fft.ifftshift to Paddle
+[radialNO.py:260] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[radialNO.py:260] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[radialNO.py:260] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[radialNO.py:260] [Success] Convert torch.fft.irfftn to Paddle
+[radialNO.py:1] [Success] Convert torch.nn.Module to Paddle
+[radialNO.py:280] [Success] Convert torch.nn.ReLU to Paddle
+[radialNO.py:290] [Success] Convert torch.nn.Linear to Paddle
+[radialNO.py:299] [Success] Convert torch.nn.Conv3d to Paddle
+[radialNO.py:300] [Success] Convert torch.nn.Conv3d to Paddle
+[radialNO.py:301] [Success] Convert torch.nn.Conv3d to Paddle
+[radialNO.py:302] [Success] Convert torch.nn.Conv3d to Paddle
+[radialNO.py:306] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[radialNO.py:306] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[radialNO.py:306] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[radialNO.py:306] [Success] Convert Class Attribute: torch.Tensor.shape to Paddle, just remain the same
+[radialNO.py:306] [Success] Convert Class Method: torch.Tensor.view to Paddle
+[radialNO.py:309] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+[radialNO.py:312] [Success] Convert torch.nn.functional.pad to Paddle
+[radialNO.py:342] [Success] Convert Class Method: torch.Tensor.permute to Paddle
+Finish convert /home/lkyu/baidu/G-FNO/G-FNO/models/radialNO.py --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/models/radialNO.py
+
+No need to convert, just Copy /home/lkyu/baidu/G-FNO/G-FNO/results/2D_rdb_NA_NA_small/GFNO2d_p4/2026-03-27_13:53:41.955028/model.pt --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/results/2D_rdb_NA_NA_small/GFNO2d_p4/2026-03-27_13:53:41.955028/model.pt
+
+No need to convert, just Copy /home/lkyu/baidu/G-FNO/G-FNO/results/2D_rdb_NA_NA_small/GFNO2d_p4/2026-03-27_13:53:41.955028/results.txt --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/results/2D_rdb_NA_NA_small/GFNO2d_p4/2026-03-27_13:53:41.955028/results.txt
+
+No need to convert, just Copy /home/lkyu/baidu/G-FNO/G-FNO/results/2D_rdb_NA_NA_small/GFNO2d_p4/2026-03-27_13:53:41.955028/events.out.tfevents.1774590821.lkyu.97578.0 --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/results/2D_rdb_NA_NA_small/GFNO2d_p4/2026-03-27_13:53:41.955028/events.out.tfevents.1774590821.lkyu.97578.0
+
+No need to convert, just Copy /home/lkyu/baidu/G-FNO/G-FNO/results/2D_rdb_NA_NA_small/GFNO2d_p4/2026-03-26_18:45:32.009157/events.out.tfevents.1774521932.lkyu.131605.0 --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/results/2D_rdb_NA_NA_small/GFNO2d_p4/2026-03-26_18:45:32.009157/events.out.tfevents.1774521932.lkyu.131605.0
+
+No need to convert, just Copy /home/lkyu/baidu/G-FNO/G-FNO/results/2D_rdb_NA_NA_small/GFNO2d_p4/2026-03-27_11:22:46.101291/model.pt --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/results/2D_rdb_NA_NA_small/GFNO2d_p4/2026-03-27_11:22:46.101291/model.pt
+
+No need to convert, just Copy /home/lkyu/baidu/G-FNO/G-FNO/results/2D_rdb_NA_NA_small/GFNO2d_p4/2026-03-27_11:22:46.101291/events.out.tfevents.1774581766.lkyu.33250.0 --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/results/2D_rdb_NA_NA_small/GFNO2d_p4/2026-03-27_11:22:46.101291/events.out.tfevents.1774581766.lkyu.33250.0
+
+No need to convert, just Copy /home/lkyu/baidu/G-FNO/G-FNO/results/2D_rdb_NA_NA_small/GFNO2d_p4/2026-03-27_11:22:46.101291/results.txt --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/results/2D_rdb_NA_NA_small/GFNO2d_p4/2026-03-27_11:22:46.101291/results.txt
+
+No need to convert, just Copy /home/lkyu/baidu/G-FNO/G-FNO/results/2D_rdb_NA_NA_small/GFNO2d_p4/2026-03-27_10:54:52.393221/events.out.tfevents.1774580092.lkyu.17975.0 --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/results/2D_rdb_NA_NA_small/GFNO2d_p4/2026-03-27_10:54:52.393221/events.out.tfevents.1774580092.lkyu.17975.0
+
+No need to convert, just Copy /home/lkyu/baidu/G-FNO/G-FNO/results/2D_rdb_NA_NA_small/GFNO2d_p4/2026-03-27_12:04:58.604874/model.pt --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/results/2D_rdb_NA_NA_small/GFNO2d_p4/2026-03-27_12:04:58.604874/model.pt
+
+No need to convert, just Copy /home/lkyu/baidu/G-FNO/G-FNO/results/2D_rdb_NA_NA_small/GFNO2d_p4/2026-03-27_12:04:58.604874/events.out.tfevents.1774584298.lkyu.55900.0 --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/results/2D_rdb_NA_NA_small/GFNO2d_p4/2026-03-27_12:04:58.604874/events.out.tfevents.1774584298.lkyu.55900.0
+
+No need to convert, just Copy /home/lkyu/baidu/G-FNO/G-FNO/results/2D_rdb_NA_NA_small/GFNO2d_p4/2026-03-27_12:04:58.604874/results.txt --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/results/2D_rdb_NA_NA_small/GFNO2d_p4/2026-03-27_12:04:58.604874/results.txt
+
+No need to convert, just Copy /home/lkyu/baidu/G-FNO/G-FNO/LICENSE --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/LICENSE
+
+No need to convert, just Copy /home/lkyu/baidu/G-FNO/G-FNO/setup.sh --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/setup.sh
+
+No need to convert, just Copy /home/lkyu/baidu/G-FNO/G-FNO/assets/network_visual.pdf --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/assets/network_visual.pdf
+
+No need to convert, just Copy /home/lkyu/baidu/G-FNO/G-FNO/assets/network_visual.png --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/assets/network_visual.png
+
+No need to convert, just Copy /home/lkyu/baidu/G-FNO/G-FNO/run_experiment.sh --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/run_experiment.sh
+
+No need to convert, just Copy /home/lkyu/baidu/G-FNO/G-FNO/notebooks/convolution_complexity.ipynb --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/notebooks/convolution_complexity.ipynb
+
+No need to convert, just Copy /home/lkyu/baidu/G-FNO/G-FNO/notebooks/speed comparison.ipynb --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/notebooks/speed comparison.ipynb
+
+No need to convert, just Copy /home/lkyu/baidu/G-FNO/G-FNO/notebooks/results.ipynb --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/notebooks/results.ipynb
+
+Start convert file: /home/lkyu/baidu/G-FNO/G-FNO/data_generation/navier_stokes/random_fields.py --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/data_generation/navier_stokes/random_fields.py
+[random_fields.py:5] remove 'import torch' 
+[random_fields.py] add 'import paddle' in line 1
+[random_fields.py:24] [Success] Convert torch.arange to Paddle
+[random_fields.py:25] [Success] Convert torch.arange to Paddle
+[random_fields.py:24] [Success] Convert torch.cat to Paddle
+[random_fields.py:31] [Success] Convert torch.arange to Paddle
+[random_fields.py:32] [Success] Convert torch.arange to Paddle
+[random_fields.py:31] [Success] Convert torch.cat to Paddle
+[random_fields.py:31] [Success] Convert Class Method: torch.Tensor.repeat to Paddle
+[random_fields.py:34] [Success] Convert Class Method: torch.Tensor.transpose to Paddle
+[random_fields.py:41] [Success] Convert torch.arange to Paddle
+[random_fields.py:42] [Success] Convert torch.arange to Paddle
+[random_fields.py:41] [Success] Convert torch.cat to Paddle
+[random_fields.py:41] [Success] Convert Class Method: torch.Tensor.repeat to Paddle
+[random_fields.py:44] [Success] Convert Class Method: torch.Tensor.transpose to Paddle
+[random_fields.py:46] [Success] Convert Class Method: torch.Tensor.transpose to Paddle
+[random_fields.py:1] [Success] Convert torch.complex64 to Paddle
+[random_fields.py:59] [Success] Convert torch.randn to Paddle
+[random_fields.py:62] [Success] Convert torch.fft.ifftn to Paddle
+[random_fields.py:62] [Success] Convert Class Attribute: torch.Tensor.real to Paddle
+Finish convert /home/lkyu/baidu/G-FNO/G-FNO/data_generation/navier_stokes/random_fields.py --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/data_generation/navier_stokes/random_fields.py
+
+Start convert file: /home/lkyu/baidu/G-FNO/G-FNO/data_generation/navier_stokes/ns_2d_rt.py --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/data_generation/navier_stokes/ns_2d_rt.py
+[ns_2d_rt.py:5] remove 'import torch' 
+[ns_2d_rt.py:17] remove 'import os' 
+[ns_2d_rt.py] add 'import paddle' in line 1
+[ns_2d_rt.py] add 'import os' in line 2
+[ns_2d_rt.py:30] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[ns_2d_rt.py:39] [Success] Convert torch.fft.rfft2 to Paddle
+[ns_2d_rt.py:42] [Success] Convert torch.fft.rfft2 to Paddle
+[ns_2d_rt.py:45] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[ns_2d_rt.py:45] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[ns_2d_rt.py:46] [Success] Convert torch.unsqueeze to Paddle
+[ns_2d_rt.py:52] [Success] Convert Class Attribute: torch.Tensor.device to Paddle, just remain the same
+[ns_2d_rt.py:52] [Success] Convert torch.arange to Paddle
+[ns_2d_rt.py:52] [Success] Convert Class Attribute: torch.Tensor.device to Paddle, just remain the same
+[ns_2d_rt.py:52] [Success] Convert torch.arange to Paddle
+[ns_2d_rt.py:52] [Success] Convert torch.cat to Paddle
+[ns_2d_rt.py:52] [Success] Convert Class Method: torch.Tensor.repeat to Paddle
+[ns_2d_rt.py:54] [Success] Convert Class Method: torch.Tensor.transpose to Paddle
+[ns_2d_rt.py:64] [Success] Convert torch.abs to Paddle
+[ns_2d_rt.py:64] [Success] Convert torch.abs to Paddle
+[ns_2d_rt.py:64] [Success] Convert torch.logical_and to Paddle
+[ns_2d_rt.py:64] [Success] Convert Class Method: torch.Tensor.float to Paddle
+[ns_2d_rt.py:64] [Success] Convert torch.unsqueeze to Paddle
+[ns_2d_rt.py:67] [Success] Convert Class Method: torch.Tensor.size to Paddle
+[ns_2d_rt.py:67] [Success] Convert Class Attribute: torch.Tensor.device to Paddle, just remain the same
+[ns_2d_rt.py:67] [Success] Convert torch.zeros to Paddle
+[ns_2d_rt.py:68] [Success] Convert Class Attribute: torch.Tensor.device to Paddle, just remain the same
+[ns_2d_rt.py:68] [Success] Convert torch.zeros to Paddle
+[ns_2d_rt.py:80] [Success] Convert torch.fft.irfft2 to Paddle
+[ns_2d_rt.py:84] [Success] Convert torch.fft.irfft2 to Paddle
+[ns_2d_rt.py:88] [Success] Convert torch.fft.irfft2 to Paddle
+[ns_2d_rt.py:92] [Success] Convert torch.fft.irfft2 to Paddle
+[ns_2d_rt.py:95] [Success] Convert torch.fft.rfft2 to Paddle
+[ns_2d_rt.py:108] [Success] Convert torch.fft.irfft2 to Paddle
+[ns_2d_rt.py:133] [Success] Convert torch.device to Paddle
+[ns_2d_rt.py:145] [Success] Convert torch.linspace to Paddle
+[ns_2d_rt.py:148] [Success] Convert torch.meshgrid to Paddle
+[ns_2d_rt.py:150] [Success] Convert torch.cos to Paddle
+[ns_2d_rt.py:150] [Success] Convert torch.cos to Paddle
+[ns_2d_rt.py:152] [Success] Convert torch.sin to Paddle
+[ns_2d_rt.py:152] [Success] Convert torch.cos to Paddle
+[ns_2d_rt.py:158] [Success] Convert torch.zeros to Paddle
+[ns_2d_rt.py:160] [Success] Convert torch.zeros to Paddle
+[ns_2d_rt.py:172] [Success] Convert Class Method: torch.distributions.distribution.Distribution.sample to Paddle
+[ns_2d_rt.py:202] [Success] Convert Class Method: torch.Tensor.cpu to Paddle
+[ns_2d_rt.py:202] [Success] Convert Class Method: torch.Tensor.numpy to Paddle
+[ns_2d_rt.py:202] [Success] Convert Class Method: torch.Tensor.cpu to Paddle
+[ns_2d_rt.py:202] [Success] Convert Class Method: torch.Tensor.numpy to Paddle
+[ns_2d_rt.py:202] [Success] Convert Class Method: torch.Tensor.cpu to Paddle
+[ns_2d_rt.py:202] [Success] Convert Class Method: torch.Tensor.numpy to Paddle
+[ns_2d_rt.py:203] [Success] Convert Class Method: torch.Tensor.cpu to Paddle
+[ns_2d_rt.py:203] [Success] Convert Class Method: torch.Tensor.numpy to Paddle
+[ns_2d_rt.py:203] [Success] Convert Class Method: torch.Tensor.cpu to Paddle
+[ns_2d_rt.py:203] [Success] Convert Class Method: torch.Tensor.numpy to Paddle
+[ns_2d_rt.py:203] [Success] Convert Class Method: torch.Tensor.cpu to Paddle
+[ns_2d_rt.py:203] [Success] Convert Class Method: torch.Tensor.numpy to Paddle
+Finish convert /home/lkyu/baidu/G-FNO/G-FNO/data_generation/navier_stokes/ns_2d_rt.py --> /home/lkyu/baidu/G-FNO/G-FNO_paddle/data_generation/navier_stokes/ns_2d_rt.py
+
+
+===========================================
+Convert Summary
+===========================================
+There are 1025 Pytorch APIs in this Project:
+ 1024  Pytorch APIs have been converted to Paddle successfully!
+ 1  Pytorch APIs are not supported to convert to Paddle currently!
+ Convert Rate is: 99.90%
+
+For these 1 Pytorch APIs that currently do not support to convert, which have been marked by >>> before the line, 
+please refer to [https://www.paddlepaddle.org.cn/documentation/docs/zh/develop/guides/model_convert/convert_from_pytorch/pytorch_api_mapping_cn.html] 
+and convert it by yourself manually. In addition, these APIs will be supported in future.
+
+Thank you to use Paddle Code Convert Tool. You can make any suggestions 
+to us by submitting issues to [https://github.com/PaddlePaddle/PaConvert].
+
