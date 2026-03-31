@@ -41,14 +41,10 @@ declare -A models=( # TODO before running: uncommented models will be trained on
 #["FNO2d_aug-rf"]=6
 ["GFNO2d_p4"]=0
 #["GFNO2d_p4m"]=3
-#["GFNO2d_p4_steer"]=6
-#["GFNO2d_p4m_steer"]=3
 #["Ghybrid2d_p4"]=6
 #["Ghybrid2d_p4m"]=7
 #["radialNO2d_p4"]=9
 #["radialNO2d_p4m"]=4
-#["Unet_Rot_M2d"]=7
-#["Unet_Rot2d"]=7
 #["FNO3d"]=0
 #["FNO3d_aug"]=3
 #["FNO3d_aug-rf"]=5
@@ -56,7 +52,6 @@ declare -A models=( # TODO before running: uncommented models will be trained on
 #["GFNO3d_p4m"]=0
 #["radialNO3d_p4"]=7
 #["radialNO3d_p4m"]=4
-#["Unet_Rot_3D"]=3
 )
 
 declare -A widths=( # number of channels
@@ -65,13 +60,10 @@ declare -A widths=( # number of channels
 ["FNO2d_aug-rf"]=20
 ["GFNO2d_p4"]=10
 ["GFNO2d_p4m"]=7
-["GFNO2d_p4_steer"]=15
-["GFNO2d_p4m_steer"]=11
 ["Ghybrid2d_p4"]=20
 ["Ghybrid2d_p4m"]=20
 ["radialNO2d_p4"]=40
 ["radialNO2d_p4m"]=50
-["Unet_Rot_M2d"]=32
 ["FNO3d"]=20
 ["FNO3d_aug"]=20
 ["FNO3d_aug-rf"]=20
@@ -79,7 +71,6 @@ declare -A widths=( # number of channels
 ["GFNO3d_p4m"]=7
 ["radialNO3d_p4"]=60
 ["radialNO3d_p4m"]=80
-["Unet_Rot_3D"]=32
 )
 
 suffix="" # TODO
@@ -122,10 +113,6 @@ for model in "${!models[@]}"; do
       ntest=1120
       if [[ "$model" = "radialNO2d_p4m" ]]; then
         width=55
-      elif [[ "$model" = "Unet_Rot_M2d" ]]; then
-        width=44
-      elif [[ "$model" = "Unet_Rot_3D" ]]; then
-        width=90
       elif [[ "$model" = "GFNO3d_p4m" ]]; then
         width=8
       fi

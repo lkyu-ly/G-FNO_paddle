@@ -1,0 +1,8 @@
+$using-superpowers 现在发现一个较为隐蔽的致命问题，之前该项目可以完全跑通是因为环境中有torch框架，而e2cnn escnn这两个库都是在torch的基础上开发的，其内部导入torch，我
+们的代码转换器并不能识别到这个问题。所以该项目实际上在paddleonly的环境中不能跑通，需要把这两个库中被调用的api本地化依赖并转换成paddle代码。两个库分别位于https://
+github.com/QUVA-Lab/e2cnn 和 https://github.com/QUVA-Lab/escnn。其中e2cnn已经克隆到本地/home/lkyu/baidu/e2cnn 。paconvert工具已经在你的环境中，如果需要使用请先调用他
+的帮助参数并阅读其参数调用指南。
+请你检查本项目G-FNO/G-FNO_paddle到底用了e2cnn和escnn的哪些模块。然后查看e2cnn的torch实现尝试剥离出仅被该项目使用的部分，如果你认为可以工作量和难度可控的找出这个库被项
+目使用的最小集，可以将这些文件拣出来使用paconvert转换成paddle版本，然后手动解决paconvert无法转换的内容，尝试能使转换代码成功导入和跑通的最小修改。
+如果这个步骤也进行完成，就把e2cnn放进G-FNO/G-FNO_paddle的合适位置并将项目中的e2cnn导入替换成本地依赖导入。对于escnn同理，但是需要你先克隆到相同位置然后重复上述操作。
+如果上述步骤中有任何位置你认为有更好的做法，可以提出，如果有任何你认为在复杂度或者原理上难以完成的操作，请直接和我提出商讨其他方案。

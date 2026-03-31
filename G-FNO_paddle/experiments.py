@@ -17,21 +17,6 @@ from models.GCNN import GCNN2d, GCNN3d
 from models.GFNO import GFNO2d, GFNO3d
 from models.Ghybrid import Ghybrid2d
 from models.radialNO import radialNO2d, radialNO3d
-
-try:
-    from models.GFNO_steerable import GFNO2d_steer
-
-    GFNO2D_STEER_IMPORT_ERROR = None
-except Exception as exc:
-    GFNO2d_steer = None
-    GFNO2D_STEER_IMPORT_ERROR = exc
-try:
-    from models.Unet import Unet_Rot, Unet_Rot_3D, Unet_Rot_M
-
-    UNET_IMPORT_ERROR = None
-except Exception as exc:
-    Unet_Rot = Unet_Rot_M = Unet_Rot_3D = None
-    UNET_IMPORT_ERROR = exc
 import argparse
 from timeit import default_timer
 
@@ -167,8 +152,6 @@ assert args.model_type in [
     "GCNN3d_p4m",
     "GFNO2d_p4",
     "GFNO2d_p4m",
-    "GFNO2d_p4_steer",
-    "GFNO2d_p4m_steer",
     "GFNO3d_p4",
     "GFNO3d_p4m",
     "Ghybrid2d_p4",
@@ -177,9 +160,6 @@ assert args.model_type in [
     "radialNO2d_p4m",
     "radialNO3d_p4",
     "radialNO3d_p4m",
-    "Unet_Rot2d",
-    "Unet_Rot_M2d",
-    "Unet_Rot_3D",
 ], f"Invalid model type {args.model_type}"
 assert args.strategy in [
     "teacher_forcing",
@@ -209,7 +189,6 @@ threeD = args.model_type in [
     "GFNO3d_p4m",
     "radialNO3d_p4",
     "radialNO3d_p4m",
-    "Unet_Rot_3D",
 ]
 extension = TRAIN_PATH.split(".")[-1]
 swe = os.path.split(TRAIN_PATH)[-1] == "ShallowWater2D"
@@ -301,20 +280,6 @@ elif "GCNN3d" in args.model_type:
         width=width,
         reflection=reflection,
     ).cuda()
-elif "GFNO2d" in args.model_type and "steer" in args.model_type:
-    if GFNO2d_steer is None:
-        raise ImportError(
-            "GFNO2d_steer requires escnn and its cache path to be available"
-        ) from GFNO2D_STEER_IMPORT_ERROR
-    reflection = "p4m" in args.model_type
-    model = GFNO2d_steer(
-        num_channels=num_channels,
-        initial_step=initial_step,
-        input_size=S,
-        modes=modes,
-        width=width,
-        reflection=reflection,
-    ).cuda()
 elif "GFNO2d" in args.model_type:
     reflection = "p4m" in args.model_type
     model = GFNO2d(
@@ -369,43 +334,6 @@ elif "radialNO3d" in args.model_type:
         reflection=reflection,
         grid_type=grid_type,
         time_pad=args.time_pad,
-    ).cuda()
-elif args.model_type == "Unet_Rot2d":
-    if Unet_Rot is None:
-        raise ImportError(
-            "Unet_Rot requires escnn and its cache path to be available"
-        ) from UNET_IMPORT_ERROR
-    model = Unet_Rot(
-        input_frames=initial_step * num_channels,
-        output_frames=num_channels,
-        kernel_size=3,
-        N=4,
-    ).cuda()
-elif args.model_type == "Unet_Rot_M2d":
-    if Unet_Rot_M is None:
-        raise ImportError(
-            "Unet_Rot_M requires escnn and its cache path to be available"
-        ) from UNET_IMPORT_ERROR
-    model = Unet_Rot_M(
-        input_frames=initial_step * num_channels,
-        output_frames=num_channels,
-        kernel_size=3,
-        N=4,
-        grid_type=grid_type,
-        width=width,
-    ).cuda()
-elif args.model_type == "Unet_Rot_3D":
-    if Unet_Rot_3D is None:
-        raise ImportError(
-            "Unet_Rot_3D requires escnn and its cache path to be available"
-        ) from UNET_IMPORT_ERROR
-    model = Unet_Rot_3D(
-        input_frames=initial_step * num_channels,
-        output_frames=num_channels,
-        kernel_size=3,
-        N=4,
-        grid_type=grid_type,
-        width=width,
     ).cuda()
 else:
     raise NotImplementedError("Model not recognized")
