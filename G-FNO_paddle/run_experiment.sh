@@ -74,6 +74,7 @@ declare -A widths=( # number of channels
 )
 
 suffix="" # TODO
+runtime_device="${DEVICE:-auto}"
 
 # loop over model types
 for model in "${!models[@]}"; do
@@ -148,6 +149,7 @@ for model in "${!models[@]}"; do
       --txt_suffix=$data_name\_$model\_seed$rep
       --learning_rate=1e-3
       --early_stopping=100
+      --device="$runtime_device"
       )
       if [ "$data" = "$swearena" ]; then
         args+=( --time_pad )

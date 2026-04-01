@@ -4,7 +4,7 @@ sys.path.append("/home/lkyu/baidu/G-FNO/G-FNO_paddle")
 import os
 
 import paddle
-from paddle_utils import _set_num_threads
+from paddle_utils import _set_num_threads, move_to_device, set_runtime_device
 
 """
 This is a modified version of fourier_2d_time.py from https://github.com/zongyi-li/fourier_neural_operator
@@ -129,6 +129,12 @@ parser.add_argument(
     help="amount of noise to inject for strategy=markov",
 )
 parser.add_argument(
+    "--device",
+    type=str,
+    default="auto",
+    help="runtime device, e.g. auto, cpu, gpu, xpu, npu, gcu",
+)
+parser.add_argument(
     "--rdb_super_res",
     type=int,
     default=128,
@@ -167,10 +173,20 @@ assert args.strategy in [
     "recurrent",
     "oneshot",
 ], "Invalid training strategy"
-paddle.manual_seed(args.seed)
+runtime_device = set_runtime_device(args.device)
+paddle.seed(args.seed)
 np.random.seed(args.seed)
-paddle.cuda.manual_seed(args.seed)
 random.seed(args.seed)
+
+
+def to_runtime(obj):
+    return move_to_device(obj, runtime_device)
+
+
+def move_batch(xx, yy):
+    return to_runtime(xx), to_runtime(yy)
+
+
 data_aug = "aug" in args.model_type
 TRAIN_PATH = args.data_path
 S = Sx = Sy = 64
@@ -244,97 +260,115 @@ if args.suffix:
 os.makedirs(root)
 path_model = os.path.join(root, "model.pt")
 if args.model_type in ["FNO2d", "FNO2d_aug"]:
-    model = FNO2d(
-        num_channels=num_channels,
-        initial_step=initial_step,
-        modes1=modes,
-        modes2=modes,
-        width=width,
-        grid_type=grid_type,
-    ).cuda()
+    model = to_runtime(
+        FNO2d(
+            num_channels=num_channels,
+            initial_step=initial_step,
+            modes1=modes,
+            modes2=modes,
+            width=width,
+            grid_type=grid_type,
+        )
+    )
 elif args.model_type in ["FNO3d", "FNO3d_aug"]:
     modes3 = time_modes if time_modes else modes
-    model = FNO3d(
-        num_channels=num_channels,
-        initial_step=initial_step,
-        modes1=modes,
-        modes2=modes,
-        modes3=modes3,
-        width=width,
-        time=time,
-        time_pad=args.time_pad,
-    ).cuda()
+    model = to_runtime(
+        FNO3d(
+            num_channels=num_channels,
+            initial_step=initial_step,
+            modes1=modes,
+            modes2=modes,
+            modes3=modes3,
+            width=width,
+            time=time,
+            time_pad=args.time_pad,
+        )
+    )
 elif "GCNN2d" in args.model_type:
     reflection = "p4m" in args.model_type
-    model = GCNN2d(
-        num_channels=num_channels,
-        initial_step=initial_step,
-        width=width,
-        reflection=reflection,
-    ).cuda()
+    model = to_runtime(
+        GCNN2d(
+            num_channels=num_channels,
+            initial_step=initial_step,
+            width=width,
+            reflection=reflection,
+        )
+    )
 elif "GCNN3d" in args.model_type:
     reflection = "p4m" in args.model_type
-    model = GCNN3d(
-        num_channels=num_channels,
-        initial_step=initial_step,
-        width=width,
-        reflection=reflection,
-    ).cuda()
+    model = to_runtime(
+        GCNN3d(
+            num_channels=num_channels,
+            initial_step=initial_step,
+            width=width,
+            reflection=reflection,
+        )
+    )
 elif "GFNO2d" in args.model_type:
     reflection = "p4m" in args.model_type
-    model = GFNO2d(
-        num_channels=num_channels,
-        initial_step=initial_step,
-        modes=modes,
-        width=width,
-        reflection=reflection,
-        grid_type=grid_type,
-    ).cuda()
+    model = to_runtime(
+        GFNO2d(
+            num_channels=num_channels,
+            initial_step=initial_step,
+            modes=modes,
+            width=width,
+            reflection=reflection,
+            grid_type=grid_type,
+        )
+    )
 elif "GFNO3d" in args.model_type:
     reflection = "p4m" in args.model_type
-    model = GFNO3d(
-        num_channels=num_channels,
-        initial_step=initial_step,
-        modes=modes,
-        time_modes=time_modes,
-        width=width,
-        reflection=reflection,
-        grid_type=grid_type,
-        time_pad=args.time_pad,
-    ).cuda()
+    model = to_runtime(
+        GFNO3d(
+            num_channels=num_channels,
+            initial_step=initial_step,
+            modes=modes,
+            time_modes=time_modes,
+            width=width,
+            reflection=reflection,
+            grid_type=grid_type,
+            time_pad=args.time_pad,
+        )
+    )
 elif "Ghybrid2d" in args.model_type:
     reflection = "p4m" in args.model_type
-    model = Ghybrid2d(
-        num_channels=num_channels,
-        initial_step=initial_step,
-        modes=modes,
-        Gwidth=args.Gwidth,
-        width=width,
-        reflection=reflection,
-        n_equiv=args.n_equiv,
-    ).cuda()
+    model = to_runtime(
+        Ghybrid2d(
+            num_channels=num_channels,
+            initial_step=initial_step,
+            modes=modes,
+            Gwidth=args.Gwidth,
+            width=width,
+            reflection=reflection,
+            n_equiv=args.n_equiv,
+        )
+    )
 elif "radialNO2d" in args.model_type:
     reflection = "p4m" in args.model_type
-    model = radialNO2d(
-        num_channels=num_channels,
-        initial_step=initial_step,
-        modes=modes,
-        width=width,
-        reflection=reflection,
-        grid_type=grid_type,
-    ).cuda()
+    model = to_runtime(
+        radialNO2d(
+            num_channels=num_channels,
+            initial_step=initial_step,
+            modes=modes,
+            width=width,
+            reflection=reflection,
+            grid_type=grid_type,
+        )
+    )
 elif "radialNO3d" in args.model_type:
     reflection = "p4m" in args.model_type
-    model = radialNO3d(
-        num_channels=num_channels,
-        initial_step=initial_step,
-        modes=modes,
-        time_modes=time_modes,
-        width=width,
-        reflection=reflection,
-        grid_type=grid_type,
-        time_pad=args.time_pad,
-    ).cuda()
+    model = to_runtime(
+        radialNO3d(
+            num_channels=num_channels,
+            initial_step=initial_step,
+            modes=modes,
+            time_modes=time_modes,
+            width=width,
+            reflection=reflection,
+            grid_type=grid_type,
+            time_pad=args.time_pad,
+        )
+    )
 else:
     raise NotImplementedError("Model not recognized")
 if args.strategy == "oneshot":
@@ -347,7 +381,7 @@ else:
     x_shape = [batch_size, Sy, Sx, T_in, num_channels]
     x_shape_super = [1, *((S_super,) * d), T_in, num_channels]
 model.train()
-x = paddle.randn(*x_shape).cuda()
+x = to_runtime(paddle.randn(*x_shape))
 if args.strategy == "recurrent":
     for _ in range(T):
         im = model(x)
@@ -359,7 +393,7 @@ eq_check_rf(model, x, spatial_dims)
 if args.super:
     model.eval()
     with paddle.no_grad():
-        x = paddle.randn(*x_shape_super).cuda()
+        x = to_runtime(paddle.randn(*x_shape_super))
         model(x)
 full_data = None
 if extension == "mat":
@@ -500,8 +534,7 @@ else:
 lploss = LpLoss(size_average=False)
 best_valid = float("inf")
 x_train, y_train = next(iter(train_loader))
-x = x_train.cuda()
-y = y_train.cuda()
+x, y = move_batch(x_train, y_train)
 x_valid, y_valid = next(iter(valid_loader))
 if args.verbose:
     print(f"{args.model_type}; Input shape: {x.shape}, Target shape: {y.shape}")
@@ -549,8 +582,7 @@ for ep in range(epochs):
     train_l2 = train_vort_l2 = train_pres_l2 = 0
     for xx, yy in tqdm(train_loader, disable=not args.verbose):
         loss = 0
-        xx = xx.cuda()
-        yy = yy.cuda()
+        xx, yy = move_batch(xx, yy)
         if data_aug:
             for b in range(len(xx)):
                 for j in range(len(spatial_dims)):
@@ -612,8 +644,7 @@ for ep in range(epochs):
         model.eval()
         model(xx)
         for xx, yy in valid_loader:
-            xx = xx.cuda()
-            yy = yy.cuda()
+            xx, yy = move_batch(xx, yy)
             pred = get_eval_pred(
                 model=model, x=xx, strategy=args.strategy, T=T, times=eval_times
             ).view(len(xx), Sy, Sx, T, num_channels)
@@ -662,8 +693,7 @@ test_rf_l2 = 0
 test_loss_by_channel = None
 with paddle.no_grad():
     for xx, yy in test_loader:
-        xx = xx.cuda()
-        yy = yy.cuda()
+        xx, yy = move_batch(xx, yy)
         pred = get_eval_pred(
             model=model, x=xx, strategy=args.strategy, T=T, times=[]
         ).view(len(xx), Sy, Sx, T, num_channels)
@@ -697,8 +727,7 @@ with paddle.no_grad():
             ),
         )
     for xx, yy in test_rt_loader:
-        xx = xx.cuda()
-        yy = yy.cuda()
+        xx, yy = move_batch(xx, yy)
         pred = get_eval_pred(
             model=model, x=xx, strategy=args.strategy, T=T, times=[]
         ).view(len(xx), Sy, Sx, T, num_channels)
@@ -707,8 +736,7 @@ with paddle.no_grad():
             yy.reshape(len(yy), -1, num_channels),
         ).item()
     for xx, yy in test_rf_loader:
-        xx = xx.cuda()
-        yy = yy.cuda()
+        xx, yy = move_batch(xx, yy)
         pred = get_eval_pred(
             model=model, x=xx, strategy=args.strategy, T=T, times=[]
         ).view(len(xx), Sy, Sx, T, num_channels)
@@ -797,8 +825,7 @@ if args.super:
     time_int_size = [*((S_super,) * d), T_super]
     with paddle.no_grad():
         for xx, yy in space_loader:
-            xx = xx.cuda()
-            yy = yy.cuda()
+            xx, yy = move_batch(xx, yy)
             pred = get_eval_pred(
                 model=model, x=xx, strategy=args.strategy, T=T, times=[]
             ).view(len(xx), *((S_super,) * d), T, num_channels)
@@ -808,15 +835,14 @@ if args.super:
             ).item()
         for xx, yy in space_int_loader:
             if rdb:
-                xx = (
+                xx = to_runtime(
                     sampler(xx.view(1, S_super, S_super, -1).permute(0, 3, 1, 2))
                     .permute(0, 2, 3, 1)
                     .view((1, *x_shape[1:]))
-                    .cuda()
                 )
             else:
-                xx = xx[:, ::4, ::4].cuda()
-            yy = yy.cuda()
+                xx = to_runtime(xx[:, ::4, ::4])
+            yy = to_runtime(yy)
             pred = get_eval_pred(
                 model=model, x=xx, strategy=args.strategy, T=T, times=[]
             ).view(len(xx), *((S,) * d), T)
@@ -828,8 +854,7 @@ if args.super:
                 yy.reshape(len(yy), -1, num_channels),
             ).item()
         for xx, yy in time_loader:
-            xx = xx.cuda()
-            yy = yy.cuda()
+            xx, yy = move_batch(xx, yy)
             pred = get_eval_pred(
                 model=model, x=xx, strategy=args.strategy, T=T_super, times=[]
             ).view(len(xx), *((S_super,) * d), T_super, num_channels)
@@ -843,17 +868,16 @@ if args.super:
         x_new_shape[0] = 1
         for xx, yy in time_int_loader:
             if rdb:
-                xx = (
+                xx = to_runtime(
                     sampler(xx.view(1, S_super, S_super, -1).permute(0, 3, 1, 2))
                     .permute(0, 2, 3, 1)
                     .view(x_new_shape)
-                    .cuda()
                 )
             else:
-                xx = xx[:, ::4, ::4].cuda()
+                xx = to_runtime(xx[:, ::4, ::4])
             if threeD:
                 xx = xx[:, :, :, ::4]
-            yy = yy.cuda()
+            yy = to_runtime(yy)
             pred = get_eval_pred(
                 model=model, x=xx, strategy=args.strategy, T=T, times=[]
             ).view(len(xx), *((S,) * d), T, num_channels)

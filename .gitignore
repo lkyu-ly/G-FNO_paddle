@@ -1,5 +1,7 @@
 .spec-workflow/
+.worktrees/
 __pycache__/
+tests/
 # *.pyc
 # *.pyo
 # *.pyd

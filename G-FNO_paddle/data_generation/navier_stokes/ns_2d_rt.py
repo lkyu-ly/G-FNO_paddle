@@ -1,4 +1,6 @@
 import os
+import sys
+from pathlib import Path
 
 import paddle
 
@@ -12,6 +14,13 @@ from timeit import default_timer
 import scipy.io
 from random_fields import GaussianRF
 from tqdm import tqdm
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+from paddle_utils import set_runtime_device
 
 
 def navier_stokes_2d(w0, f, domain_size, visc, T, delta_t=0.0001, record_steps=1):
@@ -85,8 +94,14 @@ parser.add_argument(
     "--sym", action="store_true", default=True, help="Use a symmetric forcing term"
 )
 parser.add_argument("--domain_size", type=float, default=1)
+parser.add_argument(
+    "--device",
+    type=str,
+    default="auto",
+    help="runtime device, e.g. auto, cpu, gpu, xpu, npu, gcu",
+)
 args = parser.parse_args()
-device = paddle.device("cuda")
+device = set_runtime_device(args.device)
 s = args.s
 N = args.N
 GRF = GaussianRF(2, s, args.domain_size, alpha=2.5, tau=7, device=device)

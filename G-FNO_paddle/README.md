@@ -24,6 +24,8 @@ source setup.sh
 
 This environment will use a version of `pytorch` compiled for CUDA toolkit 11.6. For 11.8, use the `setup.sh` and `experiments.py` scripts in the directory [`cu11.8`](cu11.8).
 
+All Paddle entry scripts accept `--device` and default to `auto`. Use this to force a backend such as `cpu`, `gpu`, `gpu:0`, `xpu`, `npu`, `gcu`, or another Paddle custom device type.
+
 ## Supported `--model_type`
 
 The Paddle version currently supports the model types below.
@@ -67,7 +69,7 @@ python experiments.py --seed=1 --data_path=./data/ns_V1e-4_N10000_T30.mat \
     --T=20 --ntrain=1000 --nvalid=100 --ntest=100 --model_type=GFNO2d_p4 --modes=12 --width=10 \
     --batch_size=20 --epochs=100 --suffix=seed1 --txt_suffix=ns_V1e-4_N10000_T30.mat_GFNO2d_p4_seed1 \
     --learning_rate=1e-3 --early_stopping=100 --verbose --super \
-    --super_path=./data/ns_data_V1e-4_N20_T50_R256test.mat
+    --super_path=./data/ns_data_V1e-4_N20_T50_R256test.mat --device=auto
 ```
 
 NS-Sym:
@@ -78,7 +80,7 @@ python experiments.py --seed=1 --data_path=./data/ns_V0.0001_N1200_T30_cos4.mat 
     --T=10 --ntrain=1000 --nvalid=100 --ntest=100 --model_type=GFNO2d_p4 --modes=12 --width=10 \
     --batch_size=20 --epochs=100 --suffix=seed1 --txt_suffix=ns_V0.0001_N1200_T30_cos4.mat_GFNO2d_p4_seed1 \
     --learning_rate=1e-3 --early_stopping=100 --verbose --super \
-    --super_path=./data/ns_V0.0001_N1200_T30_cos4_super.mat
+    --super_path=./data/ns_V0.0001_N1200_T30_cos4_super.mat --device=auto
 ```
 
 SWE:
@@ -88,7 +90,7 @@ python experiments.py --seed=1 --data_path=./data/ShallowWater2D \
     --results_path=./results/ShallowWater2D/GFNO2d_p4/ --strategy=teacher_forcing \
     --T=9 --ntrain=5600 --nvalid=1120 --ntest=1120 --model_type=GFNO2d_p4 --modes=32 --width=10 \
     --batch_size=20 --epochs=100 --suffix=seed1 --txt_suffix=ShallowWater2D_GFNO2d_p4_seed1 \
-    --learning_rate=1e-3 --early_stopping=100 --verbose --time_pad
+    --learning_rate=1e-3 --early_stopping=100 --verbose --time_pad --device=auto
 ```
 
 SWE-Sym:
@@ -98,7 +100,7 @@ python experiments.py --seed=1 --data_path=./data/2D_rdb_NA_NA.h5 \
     --results_path=./results/2D_rdb_NA_NA.h5/GFNO2d_p4/ --strategy=teacher_forcing \
     --T=24 --ntrain=800 --nvalid=100 --ntest=100 --model_type=GFNO2d_p4 --modes=12 --width=10 \
     --batch_size=20 --epochs=100 --suffix=seed1 --txt_suffix=2D_rdb_NA_NA.h5_GFNO2d_p4_seed1 \
-    --learning_rate=1e-3 --early_stopping=100 --verbose --super
+    --learning_rate=1e-3 --early_stopping=100 --verbose --super --device=auto
 ```
 
 ## Citation

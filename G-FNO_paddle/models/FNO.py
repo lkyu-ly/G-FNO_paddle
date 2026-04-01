@@ -31,13 +31,13 @@ class UnitGaussianNormalizer(object):
         x = x * std + mean
         return x
 
-    def cuda(self):
-        self.mean = self.mean.cuda()
-        self.std = self.std.cuda()
+    def to(self, device):
+        self.mean = move_to_device(self.mean, device)
+        self.std = move_to_device(self.std, device)
+        return self
 
     def cpu(self):
-        self.mean = self.mean.cpu()
-        self.std = self.std.cpu()
+        return self.to("cpu")
 
 
 class SpectralConv2d(paddle.nn.Module):
