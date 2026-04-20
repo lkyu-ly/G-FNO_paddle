@@ -1,10 +1,8 @@
 .spec-workflow/
 .worktrees/
+.codex
+superpowers/
 __pycache__/
 tests/
-# *.pyc
-# *.pyo
-# *.pyd
-# *.so
-# *.egg
-# *.egg-info
+models/
+
