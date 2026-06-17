@@ -25,7 +25,7 @@ MODEL_CONFIG = {
     "grid_type": "symmetric",
 }
 DEFAULT_SEED = 20260420
-ALLOWED_PADDLE_ONLY_KEYS = {"norm.norm.scale", "norm.norm.bias"}
+ALLOWED_PADDLE_ONLY_KEYS = set()
 
 
 def _reset_project_modules() -> None:

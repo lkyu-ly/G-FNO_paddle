@@ -103,6 +103,8 @@ parser.add_argument("--time_pad", action="store_true", help="pad the time dimens
 parser.add_argument("--noise_std", type=float, default=0.00, help="amount of noise to inject for strategy=markov")
 parser.add_argument("--rdb_super_res", type=int, default=128, help="original spatial resolution for PDEBench radial dam break data")
 parser.add_argument("--rdb_downsample", type=int, default=4, help="spatial downsampling factor for PDEBench radial dam break data")
+parser.add_argument("--debug_initial_state_path", type=str, default=None, help="debug-only path to a Torch state_dict")
+parser.add_argument("--debug_batch_order_path", type=str, default=None, help="debug-only JSON file with epoch_batches")
 
 args = parser.parse_args()
 
@@ -263,6 +265,9 @@ elif args.model_type == "Unet_Rot_3D":
 else:
     raise NotImplementedError("Model not recognized")
 
+if args.debug_initial_state_path is not None:
+    model.load_state_dict(torch.load(args.debug_initial_state_path, map_location="cuda"))
+
 # test model on training res and superres data
 if args.strategy == "oneshot":
     x_shape = [batch_size, Sy, Sx, T, initial_step, num_channels]
@@ -389,6 +394,15 @@ test_rf_data = pde_data(test_rf, train=False, strategy=args.strategy, T_in=T_in,
 ntest = len(test_data)
 
 train_loader = torch.utils.data.DataLoader(train_data, batch_size=batch_size, shuffle=True)
+
+debug_epoch_batches = None
+if args.debug_batch_order_path is not None:
+    from debug_alignment import DebugEpochBatchLoader, load_debug_epoch_batches
+
+    debug_epoch_batches = load_debug_epoch_batches(args.debug_batch_order_path)
+    assert len(debug_epoch_batches) >= epochs, "debug batch order must cover all epochs"
+    train_loader = DebugEpochBatchLoader(train_data, debug_epoch_batches[0])
+
 valid_loader = torch.utils.data.DataLoader(valid_data, batch_size=batch_size, shuffle=False)
 test_loader = torch.utils.data.DataLoader(test_data, batch_size=batch_size, shuffle=False)
 test_rt_loader = torch.utils.data.DataLoader(test_rt_data, batch_size=batch_size, shuffle=False)
@@ -453,6 +467,8 @@ step_ct = 0
 train_times = []
 eval_times = []
 for ep in range(epochs):
+    if debug_epoch_batches is not None:
+        train_loader = DebugEpochBatchLoader(train_data, debug_epoch_batches[ep])
     model.train()
     t1 = default_timer()
 
