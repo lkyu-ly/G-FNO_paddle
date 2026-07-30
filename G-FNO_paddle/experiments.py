@@ -3,6 +3,16 @@ import sys
 sys.path.append("/home/lkyu/baidu/G-FNO/G-FNO_paddle")
 import os
 
+# CINN 动转静单一开关（踩坑手册坑四：Paddle 3.3.0 下 to_static 与 CINN 强绑定，
+# 无法独立关闭）。必须在 import paddle 之前设置 FLAGS。
+#   开（GFNO_USE_CINN=1）：显式 to_static + CINN FLAGS 全开
+#   关（默认）：原版纯动态图，行为完全不变
+_GFNO_USE_CINN = os.environ.get("GFNO_USE_CINN", "0") == "1"
+if _GFNO_USE_CINN:
+    os.environ.setdefault("FLAGS_prim_enable_dynamic", "true")
+    os.environ.setdefault("FLAGS_prim_all", "true")
+    os.environ.setdefault("FLAGS_use_cinn", "true")
+
 import paddle
 from paddle_utils import _set_num_threads, move_to_device, set_runtime_device
 
@@ -376,6 +386,13 @@ else:
 
 if args.debug_initial_state_path is not None:
     model.set_state_dict(paddle.load(args.debug_initial_state_path))
+
+if _GFNO_USE_CINN:
+    # 权重加载之后包裹动转静（参数对象共享，不破坏后续 optimizer）。
+    # 用 SOT(full_graph=False)：GFNO2d 等变权重组装会在前向内重赋值 self.weights，
+    # AST(full_graph=True) 不允许；SOT 保留该动态语义且同样触发 CINN 编译。
+    # CINN 生效标志：日志出现 "Compiling subgraph with CINN backend"。
+    model = paddle.jit.to_static(model, full_graph=False)
 
 if args.strategy == "oneshot":
     x_shape = [batch_size, Sy, Sx, T, initial_step, num_channels]
